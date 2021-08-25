@@ -95,6 +95,7 @@ ___
 Visando propor um entendimento claro sobre os ganhos proporcionados pelo pacote _pynvest_, esta seção irá consolidar todos os indicadores financeiros extraídos de ativos (ações e fundos imobiliários):
 
 > **_Indicadores contemplados no web scrapping de ações:_** Papel, Empresa, Setor,	Subsetor,	Cotação,	Data últ cot,	Min 13M,	Max 13M,	Var Dia,	Var Mês,	Var 30D,	Var 12M,	Var 2021,	Var 2020,	Var 2019,	P/L,	P/VP,	LPA,	VPA,	EV / EBITDA,	DY,	ROE,	ROIC,	Marg. Bruta,	Marg. EBIT,	Marg. Líquida,	Lucro Líquido
+
 > **_Indicadores contemplados no web scrapping de FIIs:_** FII,	Nome,	Segmento,	Mandato,	Cotação,	Data últ cot,	Min 13M,	Max 13M,	Var Dia,	Var Mês,	Var 30D,	Var 12M,	Var 2021,	Var 2020,	Var 2019,	DY,	Dividendo/cota,	FFO Yield,	FFO/Cota,	P/VP,	VP/Cota,	Receita,	Venda de ativos,	FFO,	Rend. Distribuído,	Ativos,	Patrim Líquido,	Qtd imóveis,	Qtd Unidades,	Imóveis/PL do FII,	Área (m2),	Aluguel/m2,	Preço do m2,	Cap Rate,	Vacância Média
 
 ___
