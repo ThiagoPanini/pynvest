@@ -14,6 +14,8 @@
   - [Clonando repositório](#clonando-repositório)
   - [Instalando o Pacote](#instalando-o-pacote)
 - [Utilização Prática](#utilização-prática)
+- [Indicadores Extraídos](#indicadores-extraídos)
+- [Contatos](#contatos)
 
 ___
 
@@ -67,7 +69,6 @@ Com o ambiente virtual criado ativo e o repositório alvo devidamente clonado, p
 $ (nome_venv) cd pynvest/
 $ (nome_venv) pip install -e .
 ```
-
 ___
 
 ## Utilização Prática
@@ -77,11 +78,28 @@ Após toda a preparação detalhada na seção anterior, é possível encontrar,
 $ (nome_venv) python scripts/analise_ativos.py
 ```
 
-* _Prompt de comando_
-Como mencionado anteriormente, as funcionalidades contidas nos módulos `pynvest` contemplam a utilização de logs para facilitar o gerenciamento do estado de execução do código. Abaixo, as mensagens no prompt de comando permitem acompanhar a extração de indicadores para todas as **ações** e **fundos imobiliários** listados na B3.
+* **_Prompt de comando:_** como mencionado anteriormente, as funcionalidades contidas nos módulos `pynvest` contemplam a utilização de logs para facilitar o gerenciamento do estado de execução do código. Abaixo, as mensagens no prompt de comando permitem acompanhar a extração de indicadores para todas as **ações** e **fundos imobiliários** listados na B3.
 <h1 align="center">
   <img src="https://i.imgur.com/Pokg1cH.png", alt="ex_analise_ativos">
 </h1>
 
-* _Arquivos gerados_
-Como resultado, o script `analise_ativos.py` salva, em um diretório nominado `data/` no sistema operacional (caso o diretório não exista, é realizada a criação automática do mesmo)
+* **_Arquivos gerados:_** como resultado, o script `analise_ativos.py` salva, em um diretório nominado `data/` no sistema operacional (caso o diretório não exista, é realizada a criação automática do mesmo). Na imagem abaixo, é possível visualizar uma parcela dos elementos contidos no arquivo *detalhe_acoes_bolsa.csv* com informações de **ações** da bolsa extraída do site Fundamentus.
+<h1 align="center">
+  <img src="https://i.imgur.com/epCn7Bh.png", alt="detalhe_acoes_bolsa">
+</h1>
+
+Com isso, é possível enxergar os ganhos analíticos propostos pela extração sistêmica de indicadores de ativos. Na próxima seção, serão fornecidos detalhes adicionais sobre os atributos extraídos.
+___
+
+## Indicadores Extraídos
+Visando propor um entendimento claro sobre os ganhos proporcionados pelo pacote _pynvest_, esta seção irá consolidar todos os indicadores financeiros extraídos de ativos (ações e fundos imobiliários):
+
+> **_Indicadores contemplados no web scrapping de ações:_** Papel, Empresa, Setor,	Subsetor,	Cotação,	Data últ cot,	Min 13M,	Max 13M,	Var Dia,	Var Mês,	Var 30D,	Var 12M,	Var 2021,	Var 2020,	Var 2019,	P/L,	P/VP,	LPA,	VPA,	EV / EBITDA,	DY,	ROE,	ROIC,	Marg. Bruta,	Marg. EBIT,	Marg. Líquida,	Lucro Líquido
+> **_Indicadores contemplados no web scrapping de FIIs:_** FII,	Nome,	Segmento,	Mandato,	Cotação,	Data últ cot,	Min 13M,	Max 13M,	Var Dia,	Var Mês,	Var 30D,	Var 12M,	Var 2021,	Var 2020,	Var 2019,	DY,	Dividendo/cota,	FFO Yield,	FFO/Cota,	P/VP,	VP/Cota,	Receita,	Venda de ativos,	FFO,	Rend. Distribuído,	Ativos,	Patrim Líquido,	Qtd imóveis,	Qtd Unidades,	Imóveis/PL do FII,	Área (m2),	Aluguel/m2,	Preço do m2,	Cap Rate,	Vacância Média
+
+___
+
+## Contatos
+
+* LinkedIn: https://www.linkedin.com/in/thiago-panini/
+* Outras soluções desenvolvidas: https://github.com/ThiagoPanini
