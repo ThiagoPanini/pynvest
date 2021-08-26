@@ -11,7 +11,7 @@
 - [Sobre o pynvest](#sobre-o-pynvest)
 - [Instalação](#instalação)
   - [Criação de Ambiente Virtual](#criação-de-ambiente-virtual)
-  - [Clonando repositório](#clonando-repositório)
+  - [Clonando o Repositório](#clonando-o-repositório)
   - [Instalando o Pacote](#instalando-o-pacote)
 - [Utilização Prática](#utilização-prática)
 - [Indicadores Extraídos](#indicadores-extraídos)
@@ -51,7 +51,7 @@ $ python -m venv <nome_venv>
 $ <nome_venv>/Scripts/activate
 ```
 
-### Clonando Repositório
+### Clonando o Repositório
 Para obter o código fonte do projeto _pynvest_, pode-se [clonar](https://www.gitkraken.com/learn/git/git-clone) o repositório utilizando os protocolos HTTPS ou SSH. Assim, em um diretório de escolha própria, basta selecionar executar um dos comandos abaixo de acordo com o protocolo de utilização:
 
 ```bash
