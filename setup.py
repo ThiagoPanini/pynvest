@@ -44,6 +44,7 @@ setup(
     install_requires=[
         'requests',
         'beautifulsoup4',
+        'lxml',
         'pandas'
     ],
     license='MIT',
