@@ -5,6 +5,10 @@ data/
 # Arquivos exploratórios de construção
 dev/
 
+# Arquivos auxiliares de divulgação
+imgs/
+ppt/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
