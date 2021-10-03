@@ -80,7 +80,7 @@ $ (nome_venv) python scripts/analise_ativos.py
 
 * **_Prompt de comando:_** como mencionado anteriormente, as funcionalidades contidas nos módulos `pynvest` contemplam a utilização de logs para facilitar o gerenciamento do estado de execução do código. Abaixo, as mensagens no prompt de comando permitem acompanhar a extração de indicadores para todas as **ações** e **fundos imobiliários** listados na B3.
 <h1 align="center">
-  <img src="https://i.imgur.com/Pokg1cH.png", alt="ex_analise_ativos">
+  <img src="https://i.imgur.com/ILVNoxO.png", alt="ex_analise_ativos">
 </h1>
 
 * **_Arquivos gerados:_** como resultado, o script `analise_ativos.py` salva, em um diretório nominado `data/` no sistema operacional (caso o diretório não exista, é realizada a criação automática do mesmo). Na imagem abaixo, é possível visualizar uma parcela dos elementos contidos no arquivo *detalhe_acoes_bolsa.csv* com informações de **ações** da bolsa extraída do site Fundamentus.
