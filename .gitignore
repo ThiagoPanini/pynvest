@@ -1,6 +1,7 @@
 # Arquivos confidenciais de controle
 control/
 data/
+viz/
 
 # Arquivos exploratórios de construção
 dev/
