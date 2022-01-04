@@ -510,6 +510,7 @@ class AtivosFundamentus:
                 output_filename = kwargs['output_filename'] if 'output_filename' in kwargs else 'detalhe_acoes_bolsa.csv'
             elif tipo == 'fiis':
                 output_filename = kwargs['output_filename'] if 'output_filename' in kwargs else 'detalhe_fiis_bolsa.csv'
+            
             save_data(df_ind_financeiros, output_path=output_path, filename=output_filename)
         
         logger.info(f'Extração de indicadores de ativos de {tipo} finalizada')
