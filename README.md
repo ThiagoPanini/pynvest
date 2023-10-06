@@ -1,106 +1,115 @@
-<h1 align="center">
-  <img src="https://i.imgur.com/dZbJrh1.png", alt="pynvest logo">
-</h1>
 <div align="center">
-  <strong>:moneybag: Aplicando web scrapping para extração de indicadores fundamentalistas de ativos :moneybag:</strong>
+    <br><img src="https://github.com/ThiagoPanini/cloudgeass/blob/main/docs/assets/gifs/logo-animated-intro.gif?raw=true" alt="cloudgeass-animated-intro">
 </div>
-<br/>
 
-## Table of content
 
-- [Sobre o pynvest](#sobre-o-pynvest)
-- [Instalação](#instalação)
-  - [Criação de Ambiente Virtual](#criação-de-ambiente-virtual)
-  - [Clonando o Repositório](#clonando-o-repositório)
-  - [Instalando o Pacote](#instalando-o-pacote)
-- [Utilização Prática](#utilização-prática)
-- [Indicadores Extraídos](#indicadores-extraídos)
-- [Contatos](#contatos)
+<div align="center">  
+  <br>
+  
+  [![PyPI](https://img.shields.io/pypi/v/cloudgeass?color=purple)](https://pypi.org/project/cloudgeass/)
+  ![PyPI - Downloads](https://img.shields.io/pypi/dm/cloudgeass?color=purple)
+  ![PyPI - Status](https://img.shields.io/pypi/status/cloudgeass?color=purple)
+  ![GitHub Last Commit](https://img.shields.io/github/last-commit/ThiagoPanini/cloudgeass?color=purple)
+  <br>
 
-___
+  ![CI workflow](https://img.shields.io/github/actions/workflow/status/ThiagoPanini/cloudgeass/ci-main.yml?label=ci)
+  [![Documentation Status](https://readthedocs.org/projects/cloudgeass/badge/?version=latest)](https://cloudgeass.readthedocs.io/en/latest/?badge=latest)
+  [![codecov](https://codecov.io/github/ThiagoPanini/cloudgeass/branch/main/graph/badge.svg?token=7HI1YGS4AA)](https://codecov.io/github/ThiagoPanini/cloudgeass)
 
-## Sobre o pynvest
+</div>
 
-Já pensou em uma forma rápida, fácil e direta de gerenciar seus investimentos a partir da análise de uma série de indicadores fundamentalistas? As funcionalidades do _pynvest_ contemplam extrações sistêmicas dos mais variados parâmetros de ativos financeiros para que o usuário, em posse de tais informações, possa usufruir uma visão completa de ações e fundos imobiliários listados na bolsa de valores (ou em uma carteira específica) com o objetivo de **tomar melhores decisões** seguindo critérios pessoais de análise.
+> **Note**
+> Now *cloudgeass* has an [official documentation page on readthedocs](https://cloudgeass.readthedocs.io/en/latest/)! possui uma **documentação oficial** no readthedocs! Check it out to get access to the latest features!
 
-Baseado em processos de [web scrapping](https://www.tecmundo.com.br/internet/215525-web-scraping-conheca-tecnica-coleta-dados.htm) construídos em [python](https://www.python.org/), o _pynvest_ fornece classes, métodos e funções que permitem:
+## Quickstart
 
-* Extração de indicadores fundamentalistas, oscilações, balanços patrimoniais e demonstrativos de resultados de **ações** listadas na B3
-* Extração de indicadores fundamentalistas, oscilações, balanços patrimoniais e demonstrativos de resultados de **fundos imobiliários** listados na B3
-* Listar todos os [_tickers_](https://carteirasa.com.br/ticker-entenda-o-que-e-e-como-funciona-o-codigo-das-acoes-na-b3/) presentes na B3 para ações e fundos imobiliários
-* Muito mais...
+To start using the package, just install it using [pip](https://pypi.org/project/pip/) (or any other Python dependency management of your choose) as:
 
-Como principal fonte, o _pynvest_ utiliza o site [Fundamentus](https://www.fundamentus.com.br/index.php) para extração de indicadores de ativos da bolsa. Neste cenário, o módulo `fundamentus.py` contempla a classe `AtivosFundamentus` contendo, por sua vez, métodos específicos para o alcance dos objetivos aqui listados dentro do contexto do site Fundamentus.
-
-Para facilitar o acompanhamento das execuções, a construção das ferramentas contidas no pacote _pynvest_ contém elementos de [_logging_](https://docs.python.org/pt-br/3/howto/logging.html) que informam ao usuário o status de alguns pontos estratégicos dos códigos.
-
-___
-
-## Instalação
-
-### Criação de Ambiente Virtual
-Seguindo as boas práticas de consumo de soluções python, recomenda-se a criação de um [ambiente virtual](https://docs.python.org/pt-br/3/tutorial/venv.html) para a instalação das dependências (pacotes e bibliotecas) da ferramenta a ser utilizada. Para tal, em um diretório de escolha própria no sistema operacional de uso, basta executar os comandos abaixo para criar e ativar um ambiente virtual (exemplos para SOs Linux e Windows):
-
-```bash
-# Criando e ativando venv no Linux
-$ python -m venv <nome_venv>
-$ source <nome_venv>/bin/activate
-
-# Criando e ativcando venv no Windows
-$ python -m venv <nome_venv>
-$ <nome_venv>/Scripts/activate
+```python
+pip install cloudgeass
 ```
 
-### Clonando o Repositório
-Para obter o código fonte do projeto _pynvest_, pode-se [clonar](https://www.gitkraken.com/learn/git/git-clone) o repositório utilizando os protocolos HTTPS ou SSH. Assim, em um diretório de escolha própria, basta selecionar executar um dos comandos abaixo de acordo com o protocolo de utilização:
+You may want to install *cloudgeass* in a [Python virtual environment](https://docs.python.org/3/library/venv.html) to get a good control of your project or application dependencies. If you don't know what this is about, feel free to take a look at this excellent [article from Real Python](https://realpython.com/python-virtual-environments-a-primer/).
 
-```bash
-# Clonando repositório via HTTPS
-$ git clone https://github.com/ThiagoPanini/pynvest.git
+## Modules
 
-# Clonando repositório via SSH
-$ git clone git@github.com:ThiagoPanini/pynvest.git
-```
+Getting straight to the point, each *cloudgeass* module represents an AWS service that contains at least one class and a bunch of methods built from both boto's source client and resource for that service.
 
-### Instalando o Pacote
-Com o ambiente virtual criado ativo e o repositório alvo devidamente clonado, para obter os insumos do pacote _pynvest_, basta navegar até o diretório do projeto realizar a instalação do módulo em modo de edição através do comando:
+In other words, some modules that you can find here are:
 
-```bash
-$ (nome_venv) cd pynvest/
-$ (nome_venv) pip install -e .
-```
-___
+- `cloudgeass.aws.s3` for working with S3 service
+- `cloudgeass.aws.ec2` for working with EC2 service
+- `cloudgeass.aws.secrets` for working with Secrets Manager service
+- *and some others*
 
-## Utilização Prática
-Após toda a preparação detalhada na seção anterior, é possível encontrar, no diretório `scripts/` do projeto, alguns exemplos práticos de utilização das funcionalidades propostas pelo pacote _pynvest_. Para ilustrar uma aplicação do pacote, o script `analise_ativos.py` é responsável por extrair todos os tickers de ações e fundos imobiliários listados na B3 e gerar indicadores estratégicos para cada um dos ativos obtidos.
+## Classes
 
-```bash
-$ (nome_venv) python scripts/analise_ativos.py
-```
+Each one of the aforementioned modules have at least one class that can be imported on user's application in order to provide access to all features for that given AWS service. So, we have:
 
-* **_Prompt de comando:_** como mencionado anteriormente, as funcionalidades contidas nos módulos `pynvest` contemplam a utilização de logs para facilitar o gerenciamento do estado de execução do código. Abaixo, as mensagens no prompt de comando permitem acompanhar a extração de indicadores para todas as **ações** e **fundos imobiliários** listados na B3.
-<h1 align="center">
-  <img src="https://i.imgur.com/ILVNoxO.png", alt="ex_analise_ativos">
-</h1>
+- `cloudgeass.aws.s3.S3Client` class with methods to operate with S3 service
+- `cloudgeass.aws.ec2.EC2Client` class with methods to operate with EC2 service
+- `cloudgeass.aws.secrets.SecretsManagerClient` class with methods to operate with Secrets Manager service
+- *and some others*
 
-* **_Arquivos gerados:_** como resultado, o script `analise_ativos.py` salva, em um diretório nominado `data/` no sistema operacional (caso o diretório não exista, é realizada a criação automática do mesmo). Na imagem abaixo, é possível visualizar uma parcela dos elementos contidos no arquivo *detalhe_acoes_bolsa.csv* com informações de **ações** da bolsa extraída do site Fundamentus.
-<h1 align="center">
-  <img src="https://i.imgur.com/epCn7Bh.png", alt="detalhe_acoes_bolsa">
-</h1>
+## Attributes
 
-Com isso, é possível enxergar os ganhos analíticos propostos pela extração sistêmica de indicadores de ativos. Na próxima seção, serão fornecidos detalhes adicionais sobre os atributos extraídos.
-___
+All *cloudgeass'* service classes are initialized with a set of predefined attributes to make the work easier. Those basic attributes are:
 
-## Indicadores Extraídos
-Visando propor um entendimento claro sobre os ganhos proporcionados pelo pacote _pynvest_, esta seção irá consolidar todos os indicadores financeiros extraídos de ativos (ações e fundos imobiliários):
+| **Service class attribute** | **Description** |
+| :-- | :-- |
+| `self.logger` | A preconfigured logger object to build and stream informative log messages |
+| `self.client` | A boto3 client for the given service |
+| `self.resource` | A boto3 resource for the given service |
 
-> **_Indicadores contemplados no web scrapping de ações:_** Papel, Empresa, Setor,	Subsetor,	Cotação,	Data últ cot,	Min 13M,	Max 13M,	Var Dia,	Var Mês,	Var 30D,	Var 12M,	Var 2021,	Var 2020,	Var 2019,	P/L,	P/VP,	LPA,	VPA,	EV / EBITDA,	DY,	ROE,	ROIC,	Marg. Bruta,	Marg. EBIT,	Marg. Líquida,	Lucro Líquido
+The attributes can be externally accessed for all class instances created on an application. This means users can build an application using both *cloudgeass* and source boto3 code.
 
-> **_Indicadores contemplados no web scrapping de FIIs:_** FII,	Nome,	Segmento,	Mandato,	Cotação,	Data últ cot,	Min 13M,	Max 13M,	Var Dia,	Var Mês,	Var 30D,	Var 12M,	Var 2021,	Var 2020,	Var 2019,	DY,	Dividendo/cota,	FFO Yield,	FFO/Cota,	P/VP,	VP/Cota,	Receita,	Venda de ativos,	FFO,	Rend. Distribuído,	Ativos,	Patrim Líquido,	Qtd imóveis,	Qtd Unidades,	Imóveis/PL do FII,	Área (m2),	Aluguel/m2,	Preço do m2,	Cap Rate,	Vacância Média
+## Methods
+
+Finally, each service class has its own set of methods that, in fact, enables the power of using *cloudgeass* to do simple tasks in an AWS environment. To mention some of them, we have:
+
+- [S3Client.get_last_date_partition()](./mkdocstrings/s3.md/#cloudgeass.aws.s3.S3Client.get_last_date_partition) to get the last date partition from a table stored in S3
+- [EC2Client.get_default_vpc_id()](./mkdocstrings/ec2.md/#cloudgeass.aws.ec2.EC2Client.get_default_vpc_id) to get the default VPC ID of an AWS account
+- [SecretsManagerClient.get_secret_string()](./mkdocstrings/secrets.md/#cloudgeass.aws.secrets.SecretsManagerClient.get_secret_string) to get a secret string given a secret ID
 
 ___
 
-## Contatos
+## Contact me
 
-* LinkedIn: https://www.linkedin.com/in/thiago-panini/
-* Outras soluções desenvolvidas: https://github.com/ThiagoPanini
+- GitHub: [@ThiagoPanini](https://github.com/ThiagoPanini)
+- LinkedIn: [Thiago Panini](https://www.linkedin.com/in/thiago-panini/)
+- Hashnode: [panini-tech-lab](https://panini.hashnode.dev/)
+- DevTo: [thiagopanini](https://dev.to/thiagopanini)
+
+
+___
+
+## References
+
+**Python**
+
+- [Python - Packaging Python Projects](https://packaging.python.org/en/latest/tutorials/packaging-projects/)
+- [Stack Overflow - Reading Pandas DataFrame from S3](https://stackoverflow.com/questions/37703634/how-to-import-a-text-file-on-aws-s3-into-pandas-without-writing-to-disk)
+
+**Docs**
+
+- [NumPy docstrings](https://numpydoc.readthedocs.io/en/latest/format.html)
+- [Eduardo Mendes - Live de Python 189 - MkDocs](https://www.youtube.com/watch?v=GW6nAJ1NHUQ&t=2s&ab_channel=EduardoMendes)
+- [MkDocs](https://www.mkdocs.org/)
+- [pmdown-extensions](https://facelessuser.github.io/pymdown-extensions/)
+- [GitHub - MkDocs Themes](https://github.com/mkdocs/mkdocs/wiki/MkDocs-Themes)
+- [GitHub - Material Theme for MkDocs](https://github.com/squidfunk/mkdocs-material)
+- [Material for MkDocs - Setup](https://squidfunk.github.io/mkdocs-material/setup/changing-the-colors/)
+
+**Github**
+
+- [GitHub Actions - pypa/gh-action-pypi-publish](https://github.com/marketplace/actions/pypi-publish)
+- [Medium - Major, Minor and Patch](https://medium.com/fiverr-engineering/major-minor-patch-a5298e2e1798)
+- [Medium - Automate PyPI Releases with GitHub Actions](https://medium.com/@VersuS_/automate-pypi-releases-with-github-actions-4c5a9cfe947d)
+
+**Tests**
+
+- [Codecov - Setting Threshold](https://github.com/codecov/codecov-action/issues/554#issuecomment-1261250304)
+- [Codecov - About the Codecov YAML](https://docs.codecov.com/docs/codecov-yaml)
+- [Codecov - Status Checks](https://docs.codecov.com/docs/commit-status)
+- [Codecov - codecov.yml Reference](https://docs.codecov.com/docs/codecovyml-reference)
+- [Codecov - Ignore Paths](https://docs.codecov.com/docs/ignoring-paths)

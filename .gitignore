@@ -1,14 +1,19 @@
-# Arquivos confidenciais de controle
-control/
-data/
-viz/
+# tmp dir
+tmp/
 
-# Arquivos exploratórios de construção
-dev/
+# legacy dir
+legacy/
 
-# Arquivos auxiliares de divulgação
-imgs/
-ppt/
+# kp files
+**.ppk
+**.pem
+
+# drawio temp files
+**.drawio.bkp
+**.drawio.dtmp
+
+# Arquivos auxiliares do VSCode
+.vscode
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
