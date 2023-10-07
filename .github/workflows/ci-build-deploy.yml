@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: "Check if this is a doc branch"
         run: |
-          if [[ ${{ github.head_ref }} =~ ^docs[-/].* ]]; then
+          if [[ ${{ github.ref }} == refs/heads/docs/* || ${{ github.ref }} == refs/heads/docs-* ]]; then
             echo "Branch starts with 'docs/' - Skipping workflow"
             exit 0
           fi
@@ -26,6 +26,8 @@ jobs:
   ci-pypi-publish:
     name: ci-pypi-publish
     runs-on: ubuntu-latest
+    needs:
+      - check-doc-improvement
     
     steps:
       - name: Checkout
@@ -49,6 +51,8 @@ jobs:
   update-release-draft:
     name: update-relase-draft
     runs-on: ubuntu-latest
+    needs:
+      - check-doc-improvement
 
     steps:
       - name: Release Drafter
