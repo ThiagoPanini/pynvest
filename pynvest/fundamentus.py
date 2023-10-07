@@ -37,7 +37,7 @@ REQUEST_HEADER = {
 # Atributos temporais extraídos do site
 CUSTOM_HEADINGS = [
     "Dia", "Mês", "30 dias", "12 meses"
-] + [str(datetime.now().year-i) for i in range(6)]
+] + [str(datetime.now().year - i) for i in range(6)]
 
 
 class Fundamentus:
@@ -117,7 +117,7 @@ class Fundamentus:
                 obter. Os valores possíveis são "ações" ou "fiis". Dentro do
                 método, existem tratativas em strings para transformar este
                 input do usuário em letras minúsculas e sem espaços ao final.
-        
+
         Returns:
             Uma lista de strings contendo as siglas das Ações ou FIIs.
 
@@ -169,7 +169,7 @@ class Fundamentus:
             row.find_all("a")[0].text.strip()
             for row in soup.find_all("tr")[1:]
         ]
-        self.logger.info("Processo de extração finalizado com sucesso com "
-                         f"{len(tickers)} encontrados")
+        self.logger.debug("Processo de extração finalizado com sucesso com "
+                          f"{len(tickers)} encontrados")
 
         return sorted(tickers)
