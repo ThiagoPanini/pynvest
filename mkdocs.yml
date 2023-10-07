@@ -1,0 +1,105 @@
+# Project main info
+site_name: pynvest
+site_url: https://pynvest.readthedocs.io/en/latest/
+site_author: Thiago Panini
+site_description: >-
+  Um pacote Python capaz de extrair informações e indicadores
+  de ativos financeiros a partir de sites especializados
+  (ex: Fundamentus)
+
+# Source repo info
+repo_name: ThiagoPanini/pynvest
+repo_url: https://github.com/ThiagoPanini/pynvest
+
+# Copyright
+copyright: |
+  Copyright &copy; 2023 <a href="https://github.com/ThiagoPanini"  target="_blank" rel="noopener">ThiagoPanini</a>
+
+# Setting up docs dir
+docs_dir: docs/mkdocs
+
+# Setting up theme
+theme:
+  name: material
+
+  # Pointing a additional dir for custom setup
+  custom_dir: docs/assets
+
+  # Setting up a custom icon for site header
+  icon:
+    logo: custom/custom-icon
+
+  # Setting up a color palette
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: white
+      accent: white
+      toggle:
+        icon: material/weather-sunny
+        name: Tap for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: black
+      accent: black
+      toggle:
+        icon: material/weather-night
+        name: Tap for light mode
+
+  # Setting up template features
+  features:
+    - navigation.tabs
+    - navigation.top
+    - navigation.instant
+    - navigation.footer
+    - navigation.indexes
+    - content.tabs.link
+    - content.tooltips
+    - search.share
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+
+# Setting up navigation
+nav:
+  - Início:
+    - pynvest: index.md
+  - Documentação Oficial:
+    - Fundamentus: mkdocstrings/fundamentus.md
+
+# Setting up MkDocs extensions
+markdown_extensions:
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
+  - footnotes
+  - markdown.extensions.tables
+  - markdown.extensions.footnotes
+  - attr_list
+  - toc:
+      permalink: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+  - attr_list
+  - md_in_html
+
+# Custom CSS
+extra_css:
+  - stylesheets/extra.css
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+  - mkdocstrings
+  - drawio_file
+  - glightbox

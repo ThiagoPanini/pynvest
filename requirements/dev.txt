@@ -1,0 +1,8 @@
+flake8
+pydocstyle
+pytest
+pytest-cov
+requests
+beautifulsoup4
+lxml
+pandas

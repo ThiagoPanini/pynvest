@@ -1,63 +1,62 @@
-"""
----------------------------------------------------
------------- 1. CONFIGURAÇÕES INICIAIS ------------
-               1.2 Configurando logs
----------------------------------------------------
+"""Módulo: pynvest.utils.log
+
+Este módulo comporta funções responsáveis por auxiliar usuários a aprimorar
+suas respectivas jornadas de logs nas aplicações desenvolvidas. Os componentes
+aqui disponibilizados podem ser utilizados em funcionalidades dentro ou fora
+da biblioteca em questão.
+
+___
 """
 
 # Importando bibliotecas
 import logging
-import os
 
-# Definindo função para configurar objeto de log do código
-def log_config(logger, level=logging.DEBUG, 
-               log_format='%(levelname)s;%(asctime)s;%(filename)s;%(module)s;%(lineno)d;%(message)s',
-               log_filepath=os.path.join(os.getcwd(), 'exec_log/execution_log.log'),
-               flag_file_handler=False, flag_stream_handler=True, filemode='a'):
+
+# Criando um objeto Logger pré configurado
+def log_config(
+    logger_name: str = __file__,
+    logger_level: int = logging.INFO,
+    logger_date_format: str = "%Y-%m-%d %H:%M:%S"
+) -> logging.Logger:
+    """Cria, configura e disponibiliza um objeto Logger.
+
+    Esta função pode ser utilizada em qualquer aplicação Python para aprimorar
+    processos de log com objetivo de aumentar os níveis de observabilidade dos
+    códigos desenvolvidos. Ela utiliza o pacote Python logging para criar e
+    retornar ao usuário um objeto de Logger com algumas configurações básicas
+    pré estabelecidas, evitando possíveis overheads de configuração.
+
+    Example:
+        ```python
+        # Importando a função
+        from package.utils.log import log_config
+
+        # Criando e obtendo um objeto Logger pré configurado
+        logger = log_config(logger)
+        ```
+
+    Args:
+        logger_name (str): O nome do objeto Logger criado
+        logger_level (int): O nível de log considerado
+        logger_date_format (str): Formato de data desejado da mensagem de log
+
+    Returns:
+        Um objeto Logger pré configurado
     """
-    Função que recebe um objeto logging e aplica configurações básicas ao mesmo
-    
-    Parâmetros
-    ----------
-    :param logger: objeto logger criado no escopo do módulo [type: logging.getLogger()]
-    :param level: level do objeto logger criado [type: level, default=logging.DEBUG]
-    :param log_format: formato do log a ser armazenado [type: string]
-    :param log_filepath: caminho onde o arquivo .log será armazenado 
-        [type: string, default='exec_log/execution_log.log']
-    :param flag_file_handler: define se será criado um arquivo de armazenamento de log
-        [type: bool, default=False]
-    :param flag_stream_handler: define se as mensagens de log serão mostradas na tela
-        [type: bool, default=True]
-    :param filemode: tipo de escrita no arquivo de log [type: string, default='a' (append)]
-    
-    Retorno
-    -------
-    :return logger: objeto logger pré-configurado
-    """
 
-    # Setting level for the logger object
-    logger.setLevel(level)
+    # Criando um objeto Logger e estabelecendo seu nível
+    logger = logging.getLogger(logger_name)
+    logger.setLevel(logger_level)
 
-    # Creating a formatter
-    formatter = logging.Formatter(log_format, datefmt='%Y-%m-%d %H:%M:%S')
+    # Configurando o formato da mensagem
+    log_format = "%(levelname)s;%(asctime)s;%(filename)s;"
+    log_format += "%(lineno)d;%(message)s"
+    formatter = logging.Formatter(log_format,
+                                  datefmt=logger_date_format)
 
-    # Creating handlers
-    if flag_file_handler:
-        log_path = '/'.join(log_filepath.split('/')[:-1])
-        if not os.path.isdir(log_path):
-            os.makedirs(log_path)
-
-        # Adding file_handler
-        file_handler = logging.FileHandler(log_filepath, mode=filemode, encoding='utf-8')
-        file_handler.setFormatter(formatter)
-        logger.addHandler(file_handler)
-
-    if flag_stream_handler:
-        # Adding stream_handler
-        stream_handler = logging.StreamHandler()
-        stream_handler.setFormatter(formatter)    
-        logger.addHandler(stream_handler)
+    # Configurando stream handler
+    stream_handler = logging.StreamHandler()
+    stream_handler.setFormatter(formatter)
+    logger.addHandler(stream_handler)
 
     return logger
-
-    
