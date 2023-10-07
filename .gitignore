@@ -2,7 +2,7 @@
 tmp/
 
 # legacy dir
-legacy/
+.legacy/
 
 # kp files
 **.ppk
