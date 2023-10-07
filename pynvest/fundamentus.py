@@ -133,9 +133,13 @@ class Fundamentus:
             # Instanciando objeto da classe
             fund = Fundamentus()
 
-            # Obtendo tickers de ações
+            # Obtendo tickers de Ações
             tickers_acoes = fund.extracao_tickers_de_ativos(tipo="ações")
             # ['AALR3', 'ABCB3', 'ABCB4', 'ABEV3', 'ABYA3', 'ACES3', ...]
+
+            # Obtendo tickers de Fundos Imobiliários
+            tickers_fiis = fund.extracao_tickers_de_ativos(tipo="fiis")
+            # ['AAZQ11', 'ABCP11', 'AEFI11', 'AFCR11', 'AFHI11', ...]
             ```
         """
 
