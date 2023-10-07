@@ -62,8 +62,10 @@ theme:
 
 # Setting up navigation
 nav:
-  - Home:
+  - Início:
     - pynvest: index.md
+  - Documentação Oficial:
+    - Fundamentus: mkdocstrings/fundamentus.md
 
 # Setting up MkDocs extensions
 markdown_extensions:
