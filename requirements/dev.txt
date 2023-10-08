@@ -2,6 +2,8 @@ flake8
 pydocstyle
 pytest
 pytest-cov
+responses
+requests_mock
 requests
 beautifulsoup4
 lxml
