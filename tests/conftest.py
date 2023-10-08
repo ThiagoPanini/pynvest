@@ -17,8 +17,7 @@ import requests_mock
 # Recursos pynvest
 from pynvest.fundamentus import Fundamentus
 from pynvest.fundamentus import (
-    URL_TICKERS_ACOES,
-    URL_TICKERS_FIIS
+    URL_TICKERS_ACOES
 )
 
 # Elementos de entrada de usuários para testagem

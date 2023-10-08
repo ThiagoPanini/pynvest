@@ -6,6 +6,10 @@
 # Importando bibliotecas
 import pytest
 
+from tests.helpers.outputs.user_output_vars import (
+    EXPECTED_TICKERS_ACOES
+)
+
 
 @pytest.mark.fundamentus
 @pytest.mark.extracao_tickers_de_ativos
@@ -21,3 +25,16 @@ def test_extracao_de_tickers_de_acoes_retorna_um_objeto_do_tipo_lista(
     assert isinstance(tickers_acoes, list)
 
 
+@pytest.mark.fundamentus
+@pytest.mark.extracao_tickers_de_ativos
+def test_extracao_de_tickers_de_acoes_retorna_uma_lista_de_tickers_esperado(
+    tickers_acoes: list[str],
+    expected_tickers_acoes: list[str] = EXPECTED_TICKERS_ACOES
+):
+    """
+    G: Dado que o usuário deseja extrair todos os tickers de Ações da bolsa
+    W: Quando o método extracao_tickers_de_ativos() for chamado
+    T: Então a lista resultante deve conter os todos os tickers esperados
+    """
+
+    assert tickers_acoes == expected_tickers_acoes
