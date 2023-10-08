@@ -6,9 +6,27 @@
 # Importando bibliotecas
 import pytest
 
+from pynvest.fundamentus import Fundamentus
+
 from tests.helpers.outputs.user_output_vars import (
     EXPECTED_TICKERS_ACOES
 )
+
+
+@pytest.mark.fundamentus
+@pytest.mark.extracao_tickers_de_ativos
+def test_erro_ao_selecionar_um_tipo_invalido_de_extracao_de_tickers(
+    fundamentus: Fundamentus
+):
+    """
+    G: Dado que o usuário deseja extrair todos os tickers de Ações da bolsa
+    W: Quando o método extracao_tickers_de_ativos() for chamado com o
+       parâmetro tipo inserido de forma inválida (ex: tipo="foo")
+    T: Então uma exceção do tipo TypeError deve ser lançada
+    """
+
+    with pytest.raises(TypeError):
+        fundamentus.extracao_tickers_de_ativos(tipo="foo")
 
 
 @pytest.mark.fundamentus
@@ -18,7 +36,8 @@ def test_extracao_de_tickers_de_acoes_retorna_um_objeto_do_tipo_lista(
 ):
     """
     G: Dado que o usuário deseja extrair todos os tickers de Ações da bolsa
-    W: Quando o método extracao_tickers_de_ativos() for chamado
+    W: Quando o método extracao_tickers_de_ativos() for chamado com o
+       parâmetro tipo="ações"
     T: Então o objeto resultante deve ser do tipo lista
     """
 
@@ -33,7 +52,8 @@ def test_extracao_de_tickers_de_acoes_retorna_uma_lista_de_tickers_esperado(
 ):
     """
     G: Dado que o usuário deseja extrair todos os tickers de Ações da bolsa
-    W: Quando o método extracao_tickers_de_ativos() for chamado
+    W: Quando o método extracao_tickers_de_ativos() for chamado com o
+       parâmetro tipo="ações"
     T: Então a lista resultante deve conter os todos os tickers esperados
     """
 
