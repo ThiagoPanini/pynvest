@@ -9,7 +9,8 @@ import pytest
 from pynvest.fundamentus import Fundamentus
 
 from tests.helpers.outputs.user_output_vars import (
-    EXPECTED_TICKERS_ACOES
+    EXPECTED_TICKERS_ACOES,
+    EXPECTED_TICKERS_FIIS
 )
 
 
@@ -58,3 +59,34 @@ def test_extracao_de_tickers_de_acoes_retorna_uma_lista_de_tickers_esperado(
     """
 
     assert tickers_acoes == expected_tickers_acoes
+
+
+@pytest.mark.fundamentus
+@pytest.mark.extracao_tickers_de_ativos
+def test_extracao_de_tickers_de_fiis_retorna_um_objeto_do_tipo_lista(
+    tickers_fiis: list[str]
+):
+    """
+    G: Dado que o usuário deseja extrair todos os tickers de FIIs da bolsa
+    W: Quando o método extracao_tickers_de_ativos() for chamado com o
+       parâmetro tipo="fiis"
+    T: Então o objeto resultante deve ser do tipo lista
+    """
+
+    assert isinstance(tickers_fiis, list)
+
+
+@pytest.mark.fundamentus
+@pytest.mark.extracao_tickers_de_ativos
+def test_extracao_de_tickers_de_fiis_retorna_uma_lista_de_tickers_esperado(
+    tickers_fiis: list[str],
+    expected_tickers_fiis: list[str] = EXPECTED_TICKERS_FIIS
+):
+    """
+    G: Dado que o usuário deseja extrair todos os tickers de FIIs da bolsa
+    W: Quando o método extracao_tickers_de_ativos() for chamado com o
+       parâmetro tipo="fiis"
+    T: Então a lista resultante deve conter os todos os tickers esperados
+    """
+
+    assert tickers_fiis == expected_tickers_fiis

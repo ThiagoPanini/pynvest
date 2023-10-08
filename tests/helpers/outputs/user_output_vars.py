@@ -15,10 +15,20 @@ import os
 
 
 # Lendo arquivo HTML com mock de resposta à URL de tickers de Ações
-expected_tickers_acoes_filename = os.path.join(
+expected_tickers_acoes_filepath = os.path.join(
     os.path.dirname(__file__),
-    "acoes_tickers.txt"
+    "tickers_acoes.txt"
 )
 
-with open(expected_tickers_acoes_filename, "r", encoding="utf-8") as f:
+with open(expected_tickers_acoes_filepath, "r", encoding="utf-8") as f:
     EXPECTED_TICKERS_ACOES = f.read().split(",")
+
+
+# Lendo arquivo HTML com mock de resposta à URL de tickers de FIIs
+expected_tickers_fiis_filepath = os.path.join(
+    os.path.dirname(__file__),
+    "tickers_fiis.txt"
+)
+
+with open(expected_tickers_fiis_filepath, "r", encoding="utf-8") as f:
+    EXPECTED_TICKERS_FIIS = f.read().split(",")
