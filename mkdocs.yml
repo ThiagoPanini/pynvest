@@ -64,8 +64,18 @@ theme:
 nav:
   - Início:
     - pynvest: index.md
-  - Documentação Oficial:
+    - Arquitetura: arquitetura.md
+  
+  - Documentação:
     - Fundamentus: mkdocstrings/fundamentus.md
+  
+  - Demos:
+    - Sobre as Demos: demos/about-demos.md
+    - Fundamentus:
+      - extracao_tickers_de_ativos(): demos/fundamentus/extracao_tickers_de_ativos.md
+      - coleta_indicadores_de_ativo(): demos/fundamentus/coleta_indicadores_de_ativo.md
+
+
 
 # Setting up MkDocs extensions
 markdown_extensions:
