@@ -171,7 +171,16 @@ class Fundamentus:
         # Importando classe
         from pynvest.fundamentus import Fundamentus
 
-        # Em construção
+        # Instanciando objeto da classe
+        fundamentus = Fundamentus()
+
+        # Extraindo tickers de Ações e FIIs da bolsa
+        tickers_acoes = fund.extracao_tickers_de_ativos(tipo="ações")
+        tickers_fiis = fund.extracao_tickers_de_ativos(tipo="fiis")
+
+        # Extraindo indicadores de uma Ação ou FII da bolsa
+        df_itsa4 = fundamentus.coleta_indicadores_de_ativo("itsa4")
+        df_xplg11 = fundamentus.coleta_indicadores_de_ativo("xplg11")
         ```
 
     Args:
@@ -362,6 +371,13 @@ class Fundamentus:
         Returns:
             DataFrame pandas com indicadores financeiros do ativo escolhido.
 
+        Raises:
+            KeyError: exceção lançada quando há uma tentativa inválida de \
+                mapear colunas pré definidas em uma lista ao DataFrame \
+                resultante do processo de requisição e tratamento de \
+                indicadores financeiros, indicando assim um mismatch entre \
+                o conteúdo do site e o conteúdo previamente mapeado e validado
+
         Examples:
             ```python
             # Importando classe
@@ -372,13 +388,9 @@ class Fundamentus:
 
             # Obtendo indicadores financeiros de uma Ação
             df_itub3 = fundamentus.coleta_indicadores_de_ativo("itub3")
-            # DataFrame pandas com atributos específicos definidos em
-            # fundamentus.metadata_cols_acoes
 
             # Ou também, obtendo indicadores financeiros de um FII
             df_btlg11 = fundamentus.coleta_indicadores_de_ativo("btlg11")
-            # DataFrame pandas com atributos específicos definidos em
-            # fundamentus.metadata_cols_fiis
             ```
         """
 
