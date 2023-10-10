@@ -407,8 +407,7 @@ class Fundamentus:
                 headings = [
                     cell.text.replace("?", "").strip()
                     for cell in cells_list
-                    if ("?" in cell.text) or
-                       (cell.text in self.variation_headings)
+                    if "?" in cell.text or cell.text in self.variation_headings
                 ]
 
                 # Iterando por headings para procurar por elementos duplicados
