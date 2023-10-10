@@ -27,7 +27,7 @@ setup(
     description="Uma forma fácil de extrair indicadores de ativos da bolsa B3",
     long_description=__long_description__,
     long_description_content_type="text/markdown",
-    url='https://github.com/ThiagoPanini/pynvest',
+    url='https://pynvest.readthedocs.io/pt/latest/',
     keywords='B3, Ativos, Fundos Imobiliários, Mercado Financeiro',
     include_package_data=True,
     zip_safe=False,
