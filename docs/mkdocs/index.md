@@ -12,11 +12,10 @@ Atualmente, a biblioteca conta com funcionalidades de *web scrapping* aplicadas 
 
 ## Features
 
-Algumas das funcionalidades já existentes:
-
 - Listagem de todos os *tickers* de Ações da B3
 - Listagem de todos os *tickers* de Fundos Imobiliários da B3
-- Extração de indicadores financeiros de um ativo através de seu *ticker*
+- Extração de indicadores financeiros de ativos (Ação ou FII)
+- *E muito mais...*
 
 ## Primeiros Passos
 
