@@ -184,7 +184,84 @@ class Fundamentus:
         ```
 
     Args:
-        Em construção
+        logger_level (int, optional):
+            Nível do objeto de log a ser configurado
+
+        url_tickers_acoes (str, optional):
+            URL utilizada para extrair todos os tickers de Ações listadas na
+            B3 através do site Fundamentus. No momento de construção da lib,
+            a URL necessária para tal ação foi mapeada e registrada na
+            variável URL_TICKERS_ACOES acessível no módulo fundamentus.py.
+
+        url_tickers_acoes (str, optional):
+            URL utilizada para extrair todos os tickers de FIIs listados na
+            B3 através do site Fundamentus. No momento de construção da lib,
+            a URL necessária para tal ação foi mapeada e registrada na
+            variável URL_TICKERS_FIIS acessível no módulo fundamentus.py.
+
+        url_kpis_ticker (str, optional):
+            URL utilizada para extrair indicadores fundamentalistas de ativos
+            (Ações e B3) através do site Fundamentus. No momento de construção
+            da lib, a URL necessária para tal ação foi mapeada e registrada na
+            variável URL_KPIS_TICKER acessível no módulo fundamentus.py.
+
+        request_header (dict, optional):
+            Dicionário contendo header para configuração das requisições
+            realizadas ao site Fundamentus. No momento de construção
+            da lib, o header da requisição necessário para tal ação foi
+            mapeado e registrao na variável REQUEST_HEADER acessível no módulo
+            fundamentus.py.
+
+        variation_headings (list, optional):
+            Lista de indicadores de variação que precisam ser manualmente
+            definidos por conta da dificuldade de captura automática no
+            processo de Web Scrapping e parse do HTML resultante da requisição.
+            Em linhas gerais, os indicadores fundamentalistas dos ativos contam
+            com tabelas de oscilações que mostram a variação do determinado
+            ativo ao longo do tempo (períodos diários, mensais e até anuais).
+            Tais atributos de variação fogem à regra de extração automática
+            por conta da própria construção do site Fundamentus. Dessa forma,
+            a única forma de extrair e assimilar tais indicadores de variação
+            é associando-os manualmente em um atributo da classe para que os
+            mesmos possam ser considerados no ato da extração. Na visão do
+            usuário da biblioteca, nenhuma ação é requerida, visto que essa
+            "associação manual" é feita diretamente no módulo e não exige
+            nenhum tipo de atualização (a não ser que o próprio site
+            Fundamentus sobre alterações bruscas).
+        
+        metadata_cols_acoes (dict, optional):
+            Ao extrair indicadores financeiros de Ações da B3, uma série de
+            atributos podem ser analisados e consolidados. Para garantir que
+            as extrações, estas baseadas no parse de uma página HTML, tenham
+            uma padronização pré definida em termos da nomenclatura e da
+            ordem na qual os atributos/indicadores são extraídos, este
+            atributo considera a presença de um dicionário de mapeamento
+            contendo o nome original do atributo/indicador financeiro
+            presente no site e seu respectivo nome já preparado conforme
+            algumas regras e boas práticas de armazenamento de dados, como
+            por exemplo, a remoção de caracteres especiais, espaços, etc.
+            Este processo já é definido previamente no próprio módulo e
+            acessível através da variável METADATA_COLS_ACOES.
+
+        metadata_cols_fiis (dict, optional):
+            Existe uma diferença entre os indicadores oferecidos para Ações
+            e para Fundos Imobiliários. Isto faz total sentido, pois tratam-se
+            de ativos totalmente diferentes. Assim, por conta disso, um
+            dicionário de mapeamento de nomes de colunas para FIIs se faz
+            necessário (nos mesmos moldes do atributo metadata_cols_acoes).
+            Assim como no caso mencionado, este processo já é definido
+            previamente no próprio módulo e acessível através da variável
+            METADATA_COLS_FIIS.
+
+    Tip: Preparação dos atributos da classe Fundamentus
+        Você deve ter notado que, em essência, todos os atributos da classe
+        são opcionais. Isto foi pensado para aliviar ao máximo o lado do
+        usuário ao consumir a solução, não exigindo que nenhuma configuração
+        adicional seja fornecida (se o usuário assim entender que faça
+        sentido).
+
+        Em outras palavras, para começar a utilizar a classe Fundamentus,
+        basta inicializá-la em seu modo padrão e executar seus métodos.       
     """
 
     def __init__(
