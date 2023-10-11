@@ -228,7 +228,7 @@ class Fundamentus:
             "associação manual" é feita diretamente no módulo e não exige
             nenhum tipo de atualização (a não ser que o próprio site
             Fundamentus sobre alterações bruscas).
-        
+
         metadata_cols_acoes (dict, optional):
             Ao extrair indicadores financeiros de Ações da B3, uma série de
             atributos podem ser analisados e consolidados. Para garantir que
@@ -261,7 +261,7 @@ class Fundamentus:
         sentido).
 
         Em outras palavras, para começar a utilizar a classe Fundamentus,
-        basta inicializá-la em seu modo padrão e executar seus métodos.       
+        basta inicializá-la em seu modo padrão e executar seus métodos.
     """
 
     def __init__(
