@@ -175,8 +175,8 @@ class Fundamentus:
         fundamentus = Fundamentus()
 
         # Extraindo tickers de Ações e FIIs da bolsa
-        tickers_acoes = fund.extracao_tickers_de_ativos(tipo="ações")
-        tickers_fiis = fund.extracao_tickers_de_ativos(tipo="fiis")
+        tickers_acoes = fundamentus.extracao_tickers_de_ativos(tipo="ações")
+        tickers_fiis = fundamentus.extracao_tickers_de_ativos(tipo="fiis")
 
         # Extraindo indicadores de uma Ação ou FII da bolsa
         df_itsa4 = fundamentus.coleta_indicadores_de_ativo("itsa4")
@@ -346,7 +346,7 @@ class Fundamentus:
             fundamentus = Fundamentus()
 
             # Obtendo tickers de Ações
-            tickers_acoes = fund.extracao_tickers_de_ativos(tipo="ações")
+            tickers_acoes = fundamentus.extracao_tickers_de_ativos()
             # ['AALR3', 'ABCB3', 'ABCB4', 'ABEV3', 'ABYA3', 'ACES3', ...]
 
             # Obtendo tickers de Fundos Imobiliários
