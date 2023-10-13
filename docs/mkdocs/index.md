@@ -43,7 +43,7 @@ df_itub3 = fundamentus.coleta_indicadores_de_ativo("itub3")
 ## Navegando pela Doc
 
 - A página de [arquitetura](./arquitetura.md) contempla um diagrama de funcionamento da bibioteca
-- Em [documentação oficial](./mkdocstrings/fundamentus.md) você poderá encontrar todas as docs de classes e métodos
+- Em [documentação oficial](./mkdocstrings/scrappers/fundamentus.md) você poderá encontrar todas as docs de classes e métodos
 
 ???+ warning "Páginas em construção"
     - Página de demonstração de funcionalidades com GIFs acessíveis

@@ -67,13 +67,17 @@ nav:
     - Arquitetura: arquitetura.md
   
   - Documentação:
-    - Fundamentus: mkdocstrings/fundamentus.md
+    - Scrappers:
+      - Fundamentus: mkdocstrings/scrappers/fundamentus.md
+    - Utils:
+      - log: mkdocstrings/utils/log.md
   
   - Demos:
     - Sobre as Demos: demos/about-demos.md
-    - Fundamentus:
-      - extracao_tickers_de_ativos(): demos/fundamentus/extracao_tickers_de_ativos.md
-      - coleta_indicadores_de_ativo(): demos/fundamentus/coleta_indicadores_de_ativo.md
+    - Scrappers:
+      - Fundamentus:
+        - extracao_tickers_de_ativos(): demos/fundamentus/extracao_tickers_de_ativos.md
+        - coleta_indicadores_de_ativo(): demos/fundamentus/coleta_indicadores_de_ativo.md
 
   - Contribuindo: contribuindo/contribuindo.md
   
