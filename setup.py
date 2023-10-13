@@ -13,7 +13,7 @@ with open("README.md", "r", encoding='utf-8') as f:
 # Setting up package information
 setup(
     name='pynvest',
-    version='0.0.4',
+    version='0.0.5',
     author='Thiago Panini',
     author_email='panini.development@gmail.com',
     packages=find_packages(),

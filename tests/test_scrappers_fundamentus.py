@@ -6,7 +6,7 @@
 # Importando bibliotecas
 import pytest
 
-from pynvest.fundamentus import Fundamentus
+from pynvest.scrappers.fundamentus import Fundamentus
 
 from tests.helpers.outputs.user_output_vars import (
     EXPECTED_TICKERS_ACOES,
@@ -17,7 +17,7 @@ from tests.helpers.outputs.user_output_vars import (
 @pytest.mark.fundamentus
 @pytest.mark.extracao_tickers_de_ativos
 def test_erro_ao_selecionar_um_tipo_invalido_de_extracao_de_tickers(
-    fundamentus: Fundamentus
+    pynvest_scrapper: Fundamentus
 ):
     """
     G: Dado que o usuário deseja extrair todos os tickers de Ações da bolsa
@@ -27,7 +27,7 @@ def test_erro_ao_selecionar_um_tipo_invalido_de_extracao_de_tickers(
     """
 
     with pytest.raises(TypeError):
-        fundamentus.extracao_tickers_de_ativos(tipo="foo")
+        pynvest_scrapper.extracao_tickers_de_ativos(tipo="foo")
 
 
 @pytest.mark.fundamentus
