@@ -90,15 +90,25 @@ METADATA_COLS_ACOES = {
     "Div Br/ Patrim": "vlr_ind_divida_bruta_sobre_patrim",
     "Giro Ativos": "vlr_ind_giro_ativos",
     "Ativo": "vlr_ativo",
-    "Cart. de Crédito": "vlr_cart_de_cred",
-    "Depósitos": "vlr_depositos",
+    "Disponibilidades": "vlr_disponibilidades",
+    "Ativo Circulante": "vlr_ativ_circulante",
+    "Dív. Bruta": "vlr_divida_bruta",
+    "Dív. Líquida": "vlr_divida_liq",
     "Patrim. Líq": "vlr_patrim_liq",
-    "Result Int Financ_1": "vlr_result_int_financ_ult_12m",
-    "Rec Serviços_1": "vlr_rec_servicos_ult_12m",
+    "Receita Líquida_1": "vlr_receita_liq_ult_12m",
+    "EBIT_1": "vlr_ebit_ult_12m",
     "Lucro Líquido_1": "vlr_lucro_liq_ult_12m",
-    "Result Int Financ": "vlr_result_int_financ_ult_3m",
-    "Rec Serviços": "vlr_rec_servicos_ult_3m",
+    "Receita Líquida": "vlr_receita_liq_ult_3m",
+    "EBIT": "vlr_ebit_ult_3m",
     "Lucro Líquido": "vlr_lucro_liq_ult_3m"
+    # "Cart. de Crédito": "vlr_cart_de_cred",
+    # "Depósitos": "vlr_depositos",
+    # "Patrim. Líq": "vlr_patrim_liq",
+    # "Result Int Financ_1": "vlr_result_int_financ_ult_12m",
+    # "Rec Serviços_1": "vlr_rec_servicos_ult_12m",
+    # "Lucro Líquido_1": "vlr_lucro_liq_ult_12m",
+    # "Result Int Financ": "vlr_result_int_financ_ult_3m",
+    # "Rec Serviços": "vlr_rec_servicos_ult_3m"
 }
 
 # Estabelecendo indicadores financeiros de ações
@@ -530,33 +540,65 @@ class Fundamentus:
         if "Papel" in financial_data:
             # Ação: devemos assumir os metadados/indicadores de FIIs
             metadata_cols = self.metadata_cols_acoes
-        else:
+        elif "FII" in financial_data:
             # FII: devemos assumir os metadados/indicadores de Ações
             metadata_cols = self.metadata_cols_fiis
+        else:
+            raise TypeError("Não foram encontradas informações financeiras "
+                            f"para o ticker '{ticker}'. Verifique se o mesmo "
+                            "refere-se a uma Ação ou Fundo Imobiliário.")
 
         # Criando DataFrame pandas com indicadores financeiros do ativo
         df_ativo_raw = pd.DataFrame(financial_data, index=[0])
 
         # Renomeando atributos/indicadores para melhor análise
-        try:
-            df_indicadores_ativo = df_ativo_raw.rename(
-                columns=metadata_cols,
-                errors="raise"
-            )
-        except KeyError as ke:
-            self.logger.error("Erro ao mapear colunas/atributos financeiros "
-                              f"ao DataFrame pandas do ativo {ticker}. Este "
-                              "erro pode ter origens distintas, desde uma "
-                              "possível alteração no layout do site alvo da "
-                              "extração (Fundamentus), até uma necessidade "
-                              "pontual de atualização da lista de indicadores"
-                              " financeiros mapeados para o ativo. "
-                              f"Exception: {ke}")
-            raise ke
+        df_indicadores_ativo = df_ativo_raw.rename(
+            columns=metadata_cols,
+            errors="ignore"
+        )
 
         # Reordenando colunas com base em dicionário de metadados pré definido
-        df_indicadores_ativo = df_indicadores_ativo[
-            list(metadata_cols.values())
-        ]
+        try:
+            dataset_cols = list(metadata_cols.values())
+            df_indicadores_ativo = df_indicadores_ativo[dataset_cols]
+
+        except KeyError as ke:
+            self.logger.debug("Ocorreu um erro ao tentar mapear as colunas "
+                              "dos indicadores financeiros no DataFrame "
+                              "resultante do processo de web scrapping para "
+                              f"o ticker {ticker}.\n\n"
+                              "Existem uma série de motivos capazes de "
+                              "ocasionar esta falha no mapeamento, como por "
+                              "exemplo:\n\n"
+                              "1. Alteração no layout do portal Fundamentus.\n"
+                              "2. Diferença entre indicadores entre ativos "
+                              "distintos.\n\n"
+                              "Por experiências de consumo, o layout do site "
+                              "não costuma sofrer alterações, sendo mais "
+                              "provável a segunda hipótese que defende que "
+                              "diferentes ativos podem apresentar diferentes "
+                              "indicadores.\n\n"
+                              "Pesquise manualmente no site Fundamentus pelos "
+                              "ativos 'ITUB3' e 'ITSA4' e veja como os dados "
+                              "do balanço patrimonial e do demonstrativo de "
+                              "resultados possuem indicadores diferentes.\n\n"
+                              f"Exception: {ke}")
+
+            self.logger.debug("Iterando sobre colunas mapeadas e validando "
+                              "quais delas não estão presentes no DataFrame "
+                              f"resultante para o ticker {ticker}.")
+            for col in dataset_cols:
+                if col not in list(df_indicadores_ativo.columns):
+                    df_indicadores_ativo[col] = None
+
+        # Reordenando DataFrame agora que todas as colunas existem
+        df_indicadores_ativo = df_indicadores_ativo[dataset_cols]
+
+        # Adicionando informação de data e hora de processamento
+        now = datetime.now()
+        date_exec = now.strftime("%d-%m-%Y")
+        datetime_exec = now.strftime("%d-%m-%Y %H:%M:%S")
+        df_indicadores_ativo.loc[:, ["date_exec"]] = date_exec
+        df_indicadores_ativo.loc[:, ["datetime_exec"]] = datetime_exec
 
         return df_indicadores_ativo
