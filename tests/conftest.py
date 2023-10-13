@@ -15,8 +15,8 @@ import pytest
 import requests_mock
 
 # Recursos pynvest
-from pynvest.fundamentus import Fundamentus
-from pynvest.fundamentus import (
+from pynvest.scrappers.fundamentus import Fundamentus
+from pynvest.scrappers.fundamentus import (
     URL_TICKERS_ACOES,
     URL_TICKERS_FIIS
 )
@@ -36,7 +36,7 @@ from tests.helpers.inputs.user_input_vars import (
 
 # Objeto da classe Fundamentus utilizado para execuçãod os métodos
 @pytest.fixture
-def fundamentus() -> Fundamentus:
+def pynvest_scrapper() -> Fundamentus:
     return Fundamentus()
 
 
@@ -44,7 +44,7 @@ def fundamentus() -> Fundamentus:
 @pytest.fixture
 @requests_mock.Mocker(kw="mocker")
 def tickers_acoes(
-    fundamentus: Fundamentus,
+    pynvest_scrapper: Fundamentus,
     url: str = URL_TICKERS_ACOES,
     mocked_text: str = REQUEST_MOCKED_RESPONSE_TICKERS_ACOES,
     **kwargs
@@ -54,14 +54,14 @@ def tickers_acoes(
     mocker.get(url=url, text=mocked_text)
 
     # Realizando requisição através do método oficial da classe
-    return fundamentus.extracao_tickers_de_ativos(tipo="ações")
+    return pynvest_scrapper.extracao_tickers_de_ativos(tipo="ações")
 
 
 # Retorno mockado do método de extração de tickers de FIIs
 @pytest.fixture
 @requests_mock.Mocker(kw="mocker")
 def tickers_fiis(
-    fundamentus: Fundamentus,
+    pynvest_scrapper: Fundamentus,
     url: str = URL_TICKERS_FIIS,
     mocked_text: str = REQUEST_MOCKED_RESPONSE_TICKERS_FIIS,
     **kwargs
@@ -71,4 +71,4 @@ def tickers_fiis(
     mocker.get(url=url, text=mocked_text)
 
     # Realizando requisição através do método oficial da classe
-    return fundamentus.extracao_tickers_de_ativos(tipo="fiis")
+    return pynvest_scrapper.extracao_tickers_de_ativos(tipo="fiis")
