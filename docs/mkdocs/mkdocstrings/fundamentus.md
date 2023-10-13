@@ -1,6 +1,6 @@
 # Classe Fundamentus
 
-::: pynvest.fundamentus.Fundamentus
+::: pynvest.scrappers.fundamentus.Fundamentus
     default_handler: python
     options:
         show_source: true

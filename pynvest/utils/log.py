@@ -1,5 +1,4 @@
-"""Módulo: pynvest.utils.log
-
+"""
 Este módulo comporta funções responsáveis por auxiliar usuários a aprimorar
 suas respectivas jornadas de logs nas aplicações desenvolvidas. Os componentes
 aqui disponibilizados podem ser utilizados em funcionalidades dentro ou fora
@@ -26,7 +25,15 @@ def log_config(
     retornar ao usuário um objeto de Logger com algumas configurações básicas
     pré estabelecidas, evitando possíveis overheads de configuração.
 
-    Example:
+    Args:
+        logger_name (str): O nome do objeto Logger criado
+        logger_level (int): O nível de log considerado
+        logger_date_format (str): Formato de data desejado da mensagem de log
+
+    Returns:
+        Um objeto Logger pré configurado.
+
+    Examples:
         ```python
         # Importando a função
         from package.utils.log import log_config
@@ -34,14 +41,6 @@ def log_config(
         # Criando e obtendo um objeto Logger pré configurado
         logger = log_config(logger)
         ```
-
-    Args:
-        logger_name (str): O nome do objeto Logger criado
-        logger_level (int): O nível de log considerado
-        logger_date_format (str): Formato de data desejado da mensagem de log
-
-    Returns:
-        Um objeto Logger pré configurado
     """
 
     # Criando um objeto Logger e estabelecendo seu nível
