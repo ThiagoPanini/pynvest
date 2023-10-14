@@ -8,7 +8,7 @@
 
 Bem-vindos à página de documentação da `pynvest`, a sua biblioteca Python para extração e análise de indicadores financeiros da B3.
 
-Atualmente, a biblioteca conta com funcionalidades de *web scrapping* aplicadas ao site [Fundamentus](https://www.fundamentus.com.br/) para retornar DataFrames pandas com indicadores fundamentalistas pré estabelecidos, abrindo uma série de possibilidades analíticas e de acompanhamento aos seus usuários.
+Atualmente, a biblioteca conta com funcionalidades de *web scrapping* aplicadas ao site [Fundamentus](https://www.fundamentus.com.br/) para retornar DataFrames pandas com indicadores fundamentalistas pré estabelecidos, abrindo uma série de possibilidades analíticas e de acompanhamento de cotações e atributos financeiros de ativos.
 
 ## Features
 
@@ -31,13 +31,13 @@ Uma vez instalada a biblioteca, você poderá importar seus módulos e classes e
 
 ```python
 # Importando classe
-from pynvest.fundamentus import Fundamentus
+from pynvest.scrappers.fundamentus import Fundamentus
 
 # Instanciando objeto da classe
-fundamentus = Fundamentus()
+pynvest_scrapper = Fundamentus()
 
 # Obtendo indicadores financeiros de uma Ação
-df_itub3 = fundamentus.coleta_indicadores_de_ativo("itub3")
+df_itub3 = pynvest_scrapper.coleta_indicadores_de_ativo("itub3")
 ```
 
 ## Navegando pela Doc

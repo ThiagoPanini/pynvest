@@ -65,6 +65,7 @@ nav:
   - Início:
     - pynvest: index.md
     - Arquitetura: arquitetura.md
+    - Design: design.md
   
   - Documentação:
     - Scrappers:
