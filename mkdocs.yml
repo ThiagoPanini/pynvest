@@ -72,6 +72,16 @@ nav:
     - Utils:
       - log: mkdocstrings/utils/log.md
   
+  # ToDos:
+    # Ajustar README com ícones personalizados de ferramentas usadas no projeto (fastapi-rocket-boilerplate)
+    # Gravar demos
+    # Ajustar documentação, checar links e ajustar textos
+    # Ajustar página de arquitetura
+    # Criar página de contribuição
+    # Criar página de FAQ
+    # Ajustar README
+    # Ajustar exemplos de código nas docs
+  
   - Demos:
     - Sobre as Demos: demos/about-demos.md
     - Scrappers:

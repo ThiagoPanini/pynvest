@@ -2,7 +2,7 @@
 
 Com o objetivo de nos aprofundarmos um pouco mais no funcionamento da biblioteca `pynvest` por baixo dos panos, a imagem abaixo traz um diagrama básico da jornada do usuário ao utilizar as funcionalidades disponíveis.
 
-![Jornada básica de construção da biblioteca](https://github.com/ThiagoPanini/pynvest/blob/v0.0.x/docs/assets/diagrams/pynvest-diagram.png?raw=true)
+![Jornada básica de construção da biblioteca](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/diagrams/pynvest-diagram.png?raw=true)
 
 Em essência, alguns pontos podem ser destacados:
 
