@@ -7,7 +7,7 @@ A ideia de entregar logos, gifs, vídeos ou qualquer outro elemento visual tem c
 ## Ferramentas de Criação
 
 Para todo o *kit* artístico da biblioteca, foram utilizadas as seguintes ferramentas:
-
+ 
 - [Canva](https://www.canva.com/)
 - [Flaticon](https://www.flaticon.com/)
 - [Dafont.com](https://www.dafont.com/)
