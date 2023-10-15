@@ -19,7 +19,9 @@ Com o método `coleta_indicadores_de_ativo()`, os usuários precisam necessariam
 
     Caso o usuário execute o método com um *ticker* de fundo imobiliário (ex: BTLG11), então o DataFrame resultante irá conter um outro conjunto de indicadores que se aplicam apenas a FIIs.
 
-Assim, independente do cenário de análise, para extrair indicadores de ativos, sejam Ações ou Fundos Imobiliários, basta considerar o código abaixo:
+## Obtendo Indicadores de Ações
+
+Para obter indicadores de uma Ação listada na B3, basta instanciar um objeto da classe `Fundamentus` e executar o método `coleta_indicadores_de_ativo()` passando, como principal argumento, um *ticker* válido de uma Ação.
 
 ```python
 # Importando classe
@@ -36,13 +38,29 @@ df_itub3 = pynvest_scrapper.coleta_indicadores_de_ativo("itub3")
     [![Um GIF mostrando a execução do método coleta_indicadores_de_ativo() com o parâmetro "ticker" igual a uma ação (ex: "itub3")](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_acao.gif?raw=true)](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_acao.gif?raw=true)
 
 
+## Obtendo Indicadores de FIIs
+
+De forma análoga, para obter indicadores fundamentalista de um Fundo Imobiliário, basta chamar o mesmo método e passar, como argumento, um *ticker* válido de um FII listado na bolsa.
+
+```python
+# Obtendo indicadores financeiros de um FII
+df_xplg11 = pynvest_scrapper.coleta_indicadores_de_ativo("xplg11")
+```
+
 ???+ example "Extraindo indicadores de um fundo imobiliário"
     [![Um GIF mostrando a execução do método coleta_indicadores_de_ativo() com o parâmetro "ticker" igual a um fii (ex: "xplg11")](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_fii.gif?raw=true)](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_fii.gif?raw=true)
 
 
-???+ warning "Tentando coletar indicadores de um ativo não listado na B3"
-    Ao tentar extrair um DataFrame pandas com indicadores financeiros de uma Ação ou FII não listados na B3 (seja por erro de digitação ou por qualquer outro motivo), uma exceção do tipo `TypeError` será lançada para o usuário com uma mensagem explicativa sobre o problema de escopo.
+## Erros e Exceções
 
+Ao tentar extrair um DataFrame pandas com indicadores financeiros de uma Ação ou FII não listados na B3 (seja por erro de digitação ou por qualquer outro motivo), uma exceção do tipo `TypeError` será lançada para o usuário com uma mensagem explicativa sobre o problema de escopo.
+
+```python
+# Tentando extrair indicadores de um ativo inválido dentro do escopo do método
+df_foo = pynvest_scrapper.coleta_indicadores_de_ativo("foo")
+```
+
+???+ warning "Tentando coletar indicadores de um ativo não listado na B3"
     [![Um GIF mostrando a execução do método coleta_indicadores_de_ativo() com o parâmetro "ticker" não listado na B3 ou que não seja uma ação ou FII(ex: "foo")](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_foo.gif?raw=true)](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_foo.gif?raw=true)
 
 

@@ -89,6 +89,13 @@ nav:
       - Fundamentus:
         - extracao_tickers_de_ativos(): demos/fundamentus/extracao_tickers_de_ativos.md
         - coleta_indicadores_de_ativo(): demos/fundamentus/coleta_indicadores_de_ativo.md
+  
+  - Indicadores: 
+    - Sobre os Indicadores: indicadores/sobre-indicadores.md
+    - Scrappers:
+      - Fundamentus:
+        - Ações: indicadores/scrappers/fundamentus/acoes.md
+        - Fundos Imobiliários: indicadores/scrappers/fundamentus/fiis.md
 
   - Contribuindo: contribuindo/contribuindo.md
   
