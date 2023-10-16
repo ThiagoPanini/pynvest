@@ -32,7 +32,7 @@ pynvest_scrapper = Fundamentus()
 tickers_acoes = pynvest_scrapper.extracao_tickers_de_ativos(tipo="ações")
 ```
 
-???+ example "Listando Ações listadas na B3"
+???+ example "Obtendo tickers de Ações listadas na B3"
     [![Um GIF mostrando a execução do método extracao_tickers_de_ativos() com o parâmetro "tipo" igual a "ações"](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-extracao_tickers_de_ativos_acoes.gif?raw=true)](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-extracao_tickers_de_ativos_acoes.gif?raw=true)
 
 
@@ -45,7 +45,7 @@ Para listagem de fundos imobiliários, basta alterar a chamada do método para o
 tickers_fiis = pynvest_scrapper.extracao_tickers_de_ativos(tipo="fiis")
 ```
 
-???+ example "Listando Fundos Imobiliários listados na B3"
+???+ example "Obtendo tickers Fundos Imobiliários listados na B3"
     [![Um GIF mostrando a execução do método extracao_tickers_de_ativos() com o parâmetro "tipo" igual a "fiis"](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-extracao_tickers_de_ativos_fiis.gif?raw=true)](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-extracao_tickers_de_ativos_fiis.gif?raw=true)
 
 
