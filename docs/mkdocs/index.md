@@ -44,9 +44,11 @@ df_itub3 = pynvest_scrapper.coleta_indicadores_de_ativo("itub3")
 
 - A página de [arquitetura](./arquitetura.md) contempla um diagrama de funcionamento da bibioteca
 - Em [documentação oficial](./mkdocstrings/scrappers/fundamentus.md) você poderá encontrar todas as docs de classes e métodos
+- Já em [demos](./demos/about-demos.md), você poderá se servir de demonstrações práticas de algumas *features*
+- :material-alert-decagram:{ .mdx-pulse .warning } Em [indicadores](./indicadores/sobre-indicadores.md), todos os metadados dos atributos financeiros extarídos poderão ser vistos em detalhes. É aqui onde os usuários poderão explorar todas as vantagens de se utilizar a biblioteca para analisar indicadores fundamentalistas de ativos.
+
 
 ???+ warning "Páginas em construção"
-    - Página de demonstração de funcionalidades com GIFs acessíveis
     - Página de contribuição para novos colaboradores
     - FAQ com perguntas mais frequentes sobre a biblioteca
 
