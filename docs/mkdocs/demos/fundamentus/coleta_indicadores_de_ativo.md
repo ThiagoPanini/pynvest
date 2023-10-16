@@ -66,3 +66,4 @@ df_foo = pynvest_scrapper.coleta_indicadores_de_ativo("foo")
 
 ## Sobre os indicadores coletados
 
+:material-alert-decagram:{ .mdx-pulse .warning } Para obter detalhes sobre a definição de todos os indicadores financeiros extraídos e consolidados através do processo *web scrapping* ao site Fundamentus, verifique a página de [indicadores](../../indicadores/sobre-indicadores.md).
