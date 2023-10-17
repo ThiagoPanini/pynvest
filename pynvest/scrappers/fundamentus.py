@@ -1,4 +1,4 @@
-"""Módulo: pynvest.fundamentus
+"""Módulo: pynvest.scrappers.fundamentus
 
 Este módulo proporciona uma série de funcionalidades específicas para extrair
 indicadores financeiros do site Fundamentus.
@@ -179,18 +179,18 @@ class Fundamentus:
     Examples:
         ```python
         # Importando classe
-        from pynvest.fundamentus import Fundamentus
+        from pynvest.scrappers.fundamentus import Fundamentus
 
         # Instanciando objeto da classe
-        fundamentus = Fundamentus()
+        pynvest_scrapper = Fundamentus()
 
         # Extraindo tickers de Ações e FIIs da bolsa
-        tickers_acoes = fundamentus.extracao_tickers_de_ativos(tipo="ações")
-        tickers_fiis = fundamentus.extracao_tickers_de_ativos(tipo="fiis")
+        tickers_acoes = pynvest_scrapper.extracao_tickers_de_ativos()
+        tickers_fiis = pynvest_scrapper.extracao_tickers_de_ativos(tipo="fiis")
 
         # Extraindo indicadores de uma Ação ou FII da bolsa
-        df_itsa4 = fundamentus.coleta_indicadores_de_ativo("itsa4")
-        df_xplg11 = fundamentus.coleta_indicadores_de_ativo("xplg11")
+        df_itsa4 = pynvest_scrapper.coleta_indicadores_de_ativo("itsa4")
+        df_xplg11 = pynvest_scrapper.coleta_indicadores_de_ativo("xplg11")
         ```
 
     Args:
@@ -350,17 +350,19 @@ class Fundamentus:
         Examples:
             ```python
             # Importando classe
-            from pynvest.fundamentus import Fundamentus
+            from pynvest.scrappers.fundamentus import Fundamentus
 
             # Instanciando objeto da classe
-            fundamentus = Fundamentus()
+            pynvest_scrapper = Fundamentus()
 
             # Obtendo tickers de Ações
-            tickers_acoes = fundamentus.extracao_tickers_de_ativos()
+            tickers_acoes = pynvest_scrapper.extracao_tickers_de_ativos()
             # ['AALR3', 'ABCB3', 'ABCB4', 'ABEV3', 'ABYA3', 'ACES3', ...]
 
             # Obtendo tickers de Fundos Imobiliários
-            tickers_fiis = fund.extracao_tickers_de_ativos(tipo="fiis")
+            tickers_fiis = pynvest_scrapper.extracao_tickers_de_ativos(
+                tipo="fiis"
+            )
             # ['AAZQ11', 'ABCP11', 'AEFI11', 'AFCR11', 'AFHI11', ...]
             ```
         """
@@ -468,16 +470,16 @@ class Fundamentus:
         Examples:
             ```python
             # Importando classe
-            from pynvest.fundamentus import Fundamentus
+            from pynvest.scrappers.fundamentus import Fundamentus
 
             # Instanciando objeto da classe
-            fundamentus = Fundamentus()
+            pynvest_scrapper = Fundamentus()
 
             # Obtendo indicadores financeiros de uma Ação
-            df_itub3 = fundamentus.coleta_indicadores_de_ativo("itub3")
+            df_itub3 = pynvest_scrapper.coleta_indicadores_de_ativo("itub3")
 
             # Ou também, obtendo indicadores financeiros de um FII
-            df_btlg11 = fundamentus.coleta_indicadores_de_ativo("btlg11")
+            df_btlg11 = pynvest_scrapper.coleta_indicadores_de_ativo("btlg11")
             ```
         """
 

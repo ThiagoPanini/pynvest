@@ -1,14 +1,14 @@
 # Um jeito fácil de obter indicadores financeiros
 
 <div align="center">
-    <br><img src="https://github.com/ThiagoPanini/pynvest/blob/v0.0.x/docs/assets/gifs/logo-animated-intro.gif?raw=true" alt="pynvest-animated-intro" width="900" height="400">
+    <br><img src="https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/logo-animated-intro-v2.gif?raw=true" alt="pynvest-animated-intro" width="900" height="400">
 </div>
 
 ## Visão Geral
 
 Bem-vindos à página de documentação da `pynvest`, a sua biblioteca Python para extração e análise de indicadores financeiros da B3.
 
-Atualmente, a biblioteca conta com funcionalidades de *web scrapping* aplicadas ao site [Fundamentus](https://www.fundamentus.com.br/) para retornar DataFrames pandas com indicadores fundamentalistas pré estabelecidos, abrindo uma série de possibilidades analíticas e de acompanhamento aos seus usuários.
+Atualmente, a biblioteca conta com funcionalidades de *web scrapping* aplicadas ao site [Fundamentus](https://www.fundamentus.com.br/) para retornar DataFrames pandas com indicadores fundamentalistas pré estabelecidos, abrindo uma série de possibilidades analíticas e de acompanhamento de cotações e atributos financeiros de ativos.
 
 ## Features
 
@@ -31,22 +31,24 @@ Uma vez instalada a biblioteca, você poderá importar seus módulos e classes e
 
 ```python
 # Importando classe
-from pynvest.fundamentus import Fundamentus
+from pynvest.scrappers.fundamentus import Fundamentus
 
 # Instanciando objeto da classe
-fundamentus = Fundamentus()
+pynvest_scrapper = Fundamentus()
 
 # Obtendo indicadores financeiros de uma Ação
-df_itub3 = fundamentus.coleta_indicadores_de_ativo("itub3")
+df_itub3 = pynvest_scrapper.coleta_indicadores_de_ativo("itub3")
 ```
 
 ## Navegando pela Doc
 
 - A página de [arquitetura](./arquitetura.md) contempla um diagrama de funcionamento da bibioteca
-- Em [documentação oficial](./mkdocstrings/fundamentus.md) você poderá encontrar todas as docs de classes e métodos
+- Em [documentação oficial](./mkdocstrings/scrappers/fundamentus.md) você poderá encontrar todas as docs de classes e métodos
+- Já em [demos](./demos/about-demos.md), você poderá se servir de demonstrações práticas de algumas *features*
+- :material-alert-decagram:{ .mdx-pulse .warning } Em [indicadores](./indicadores/sobre-indicadores.md), todos os metadados dos atributos financeiros extarídos poderão ser vistos em detalhes. É aqui onde os usuários poderão explorar todas as vantagens de se utilizar a biblioteca para analisar indicadores fundamentalistas de ativos.
+
 
 ???+ warning "Páginas em construção"
-    - Página de demonstração de funcionalidades com GIFs acessíveis
     - Página de contribuição para novos colaboradores
     - FAQ com perguntas mais frequentes sobre a biblioteca
 
