@@ -400,7 +400,7 @@ class Fundamentus:
         self.logger.debug("Processo de extração finalizado com sucesso com "
                           f"{len(tickers)} encontrados")
 
-        return sorted(tickers)
+        return sorted(list(set(tickers)))
 
     def coleta_indicadores_de_ativo(self, ticker: str) -> pd.DataFrame:
         """
