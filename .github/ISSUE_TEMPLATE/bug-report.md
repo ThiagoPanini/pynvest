@@ -1,35 +1,37 @@
 ---
 name: Bug Report
-about: Declaring errors and suggesting improvements
+about: Declaração de erros ou bugs envolvendo a biblioteca
 title: "[BUG]"
 labels: bug
 assignees: ThiagoPanini
 
 ---
 
-:writing_hand: **_Problem description:_**
-ToDo: provide a clear vision of bug reported and point out the impact. Additionaly, insert block codes that help to identify and reproduce the bug.
+:writing_hand: **_Descrição do problema:_**
+ToDo: proporcione uma visão clara do bug a ser reportado. Adicionalmente, insira blocos de código capazes de facilitar na identificação e reprodução do problema.
+
 ```python
-# Insert your code here
+# Insira seu código aqui
 ```
 ___
-:lady_beetle: **_Reproducing the problem:_**
-To reproduce the bug it's need the take the following steps (example):
-1. [ ] Import module ```package.module```
-2. [ ] Run the function ```function```
-3. [ ] Using paramteres ```(param_a='a', param_b='b')```
-4. [ ] Check the error ```Exception e```
+:lady_beetle: **_Reproduzindo o problema:_**
+Para reproduzir o bug, siga os passos abaixo (exemplo):
+
+1. [ ] Importar o módulo ```package.module```
+2. [ ] Executar a função ```function()```
+3. [ ] Incluir os parâmetros ```(param_a='a', param_b='b')```
+4. [ ] Verificar os erros ```Exception e```
 ___
-:gear: **_Expected behavior:_**
-ToDo: describe the feature expected behavior.
+:gear: **_Comportamento esperado:_**
+ToDo: descreva o comportamento esperado pela função.
 ___
-:earth_americas: **_Additional information:_**
-ToDo: if applicable, provide some datails about the environment where the bug showed up. Informations like OS and language version are useful.
+:earth_americas: **_Informações adicionais:_**
+ToDo: se aplicável, forneça detalhes adicionais sobre o ambiente utilizado (por exemplo, o sistema operacional, versão da linguagem de programa, versão da biblioteca, entre outras).
 ___
 :camera: **_Screenshots:_** [OPTIONAL]
-ToDo: if applicable, provide some screenshots that help to understand the bug.
+ToDo: se aplicável, forneça algumas capturas de tela para ajudar no entendimento do bug/problema
 ___
-:speech_balloon: **_Possible solutions:_** [OPTIONAL]
-Probably the the solution for this bug would be reached through:
-- Trying step A
-- Trying step B
+:speech_balloon: **_Possíveis soluções:_** [OPTIONAL]
+Provavelmente soluções para o problema poderiam ser testadas através dos caminhos:
+- Tentativa A
+- Tentativa B
