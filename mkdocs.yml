@@ -90,6 +90,11 @@ nav:
       - Fundamentus:
         - Ações: indicadores/scrappers/fundamentus/acoes.md
         - Fundos Imobiliários: indicadores/scrappers/fundamentus/fiis.md
+  
+  - Tools:
+    - O pynvest-tools: tools/pynvest-tools.md
+    - Variáveis do Módulo: tools/variaveis.md
+    - Demo: tools/demo.md
 
   - Contribuindo: contribuindo/contribuindo.md
   
