@@ -48,11 +48,6 @@ df_itub3 = pynvest_scrapper.coleta_indicadores_de_ativo("itub3")
 - Em [indicadores](./indicadores/sobre-indicadores.md), todos os metadados dos atributos financeiros extarídos poderão ser vistos em detalhes. É aqui onde os usuários poderão explorar todas as vantagens de se utilizar a biblioteca para analisar indicadores fundamentalistas de ativos.
 - :material-alert-decagram:{ .mdx-pulse .warning } Quer ter tabelas catalogadas e atualizadas diariamente em sua conta AWS com todos os indicadores financeiros? Veja a nova solução [pynvest-tools](./tools/pynvest-tools.md) e desbloqueie o poder analítico em torno de dados financeiros!
 
-
-???+ warning "Páginas em construção"
-    - Página de contribuição para novos colaboradores
-    - FAQ com perguntas mais frequentes sobre a biblioteca
-
 ## Entre em Contato
 
 - :fontawesome-brands-github: [@ThiagoPanini](https://github.com/ThiagoPanini)
