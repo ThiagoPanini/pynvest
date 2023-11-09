@@ -13,7 +13,7 @@ from pynvest.utils.log import log_config
 import requests
 from bs4 import BeautifulSoup
 
-from datetime import datetime
+from datetime import datetime, timezone, timedelta
 
 import pandas as pd
 
@@ -400,7 +400,7 @@ class Fundamentus:
         self.logger.debug("Processo de extração finalizado com sucesso com "
                           f"{len(tickers)} encontrados")
 
-        return sorted(tickers)
+        return sorted(list(set(tickers)))
 
     def coleta_indicadores_de_ativo(self, ticker: str) -> pd.DataFrame:
         """
@@ -597,7 +597,7 @@ class Fundamentus:
         df_indicadores_ativo = df_indicadores_ativo[dataset_cols]
 
         # Adicionando informação de data e hora de processamento
-        now = datetime.now()
+        now = datetime.now(timezone(timedelta(hours=-3)))
         date_exec = now.strftime("%d-%m-%Y")
         datetime_exec = now.strftime("%d-%m-%Y %H:%M:%S")
         df_indicadores_ativo.loc[:, ["date_exec"]] = date_exec

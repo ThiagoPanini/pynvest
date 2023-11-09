@@ -1,19 +1,18 @@
 ---
-name: Help Needed
-about: Asking for help
+name: Help
+about: Ajuda Necessária
 title: "[HELP]"
 labels: help wanted
 assignees: ''
 
 ---
 
-:heavy_check_mark: **_Checklist to dobefore asking for help:_**
-Check with a "x" on topics already done for you before opening this issue:
-- [ ] I've already look at the project docs
-- [ ] I've already look at the possibility to have environment conflicts, like OS, python version, package version and others
-- [ ] I've already look at test scripts and demos available on repo and docs
-- [ ] I've already look at other similar issues
+:heavy_check_mark: **_Checklist útil antes da oficialização do pedido:_**
+- [ ] Eu já li a documentação do projeto
+- [ ] Já levantei a possibilidade de conflitos de ambiente, como sistema operacional, versão do Python, versão da biblioteca, entre outros
+- [ ] Já consumi as demonstrações das funcionalidades existentes na documentação
+- [ ] Já procurei por issues similares no repositório do projeto
 
 ___
 
-:red_circle: **_Help description:_**
+:red_circle: **_Pedido de ajuda:_**

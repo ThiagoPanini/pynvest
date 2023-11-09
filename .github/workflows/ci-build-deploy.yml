@@ -15,14 +15,7 @@ jobs:
     name: ci-pypi-publish
     runs-on: ubuntu-latest
     
-    steps:
-      - name: "Check if this is a doc branch"
-        run: |
-          if [[ ${{ github.ref }} == refs/heads/docs/* || ${{ github.ref }} == refs/heads/docs-* ]]; then
-            echo "Branch starts with 'docs/' - Skipping workflow"
-            exit 0
-          fi
-      
+    steps:      
       - name: Checkout
         uses: actions/checkout@v3
 
@@ -46,13 +39,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "Check if this is a doc branch"
-        run: |
-          if [[ ${{ github.ref }} == refs/heads/docs/* || ${{ github.ref }} == refs/heads/docs-* ]]; then
-            echo "Branch starts with 'docs/' - Skipping workflow"
-            exit 0
-          fi
-
       - name: Release Drafter
         uses: release-drafter/release-drafter@v5
         env:

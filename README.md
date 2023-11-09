@@ -63,7 +63,7 @@ df_itub3 = pynvest_scrapper.coleta_indicadores_de_ativo("itub3")
 
 ## Readthedocs
 
-🚨 Mais uma vez, pois vale o reforço: existe uma [página oficial de documentação da biblitoeca](https://pynvest.readthedocs.io/pt/latest/) criada com carinho e dedicação para todos os interessados em saber mais a respeito. Viva o open source!
+🚨 Reforçando pois vale o reforço: existe uma [página oficial de documentação da biblitoeca](https://pynvest.readthedocs.io/pt/latest/) criada com carinho e dedicação para todos os interessados em saber mais a respeito da solução. Viva o open source!
 
 
 ## Entre em Contato
