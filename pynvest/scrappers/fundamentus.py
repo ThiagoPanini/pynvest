@@ -58,7 +58,7 @@ METADATA_COLS_ACOES = {
     "Últ balanço processado": "dt_ult_balanco_proc",
     "Nro. Ações": "num_acoes",
     "Dia": "pct_var_dia",
-    "Mês": "pct_var_mês",
+    "Mês": "pct_var_mes",
     "30 dias": "pct_var_30d",
     "12 meses": "pct_var_12m",
     "2023": "pct_var_2023",
