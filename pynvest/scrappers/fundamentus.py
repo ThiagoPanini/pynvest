@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 
 import pandas as pd
+import numpy as np
 
 
 """ -------------------------------------------------
@@ -163,6 +164,76 @@ METADATA_COLS_FIIS = {
     "Vacância Média": "vlr_vacancia_media",
 }
 
+# Definindo colunas capazes de serem convertidas para numéricas
+FLOAT_COLS_TO_PARSE = [
+    "vlr_cot",
+    "vlr_min_52_sem",
+    "vlr_max_52_sem",
+    "vol_med_neg_2m",
+    "vlr_mercado",
+    "vlr_firma",
+    "num_acoes",
+    "pct_var_dia",
+    "pct_var_mes",
+    "pct_var_30d",
+    "pct_var_12m",
+    "pct_var_2023",
+    "pct_var_2022",
+    "pct_var_2021",
+    "pct_var_2020",
+    "pct_var_2019",
+    "pct_var_2018",
+    "vlr_ind_p_sobre_l",
+    "vlr_ind_p_sobre_vp",
+    "vlr_ind_p_sobre_ebit",
+    "vlr_ind_psr",
+    "vlr_ind_p_sobre_ativ",
+    "vlr_ind_p_sobre_cap_giro",
+    "vlr_ind_p_sobre_ativ_circ_liq",
+    "vlr_ind_div_yield",
+    "vlr_ind_ev_sobre_ebitda",
+    "vlr_ind_ev_sobre_ebit",
+    "pct_cresc_rec_liq_ult_5a",
+    "vlr_ind_lpa",
+    "vlr_ind_vpa",
+    "vlr_ind_margem_bruta",
+    "vlr_ind_margem_ebit",
+    "vlr_ind_margem_liq",
+    "vlr_ind_ebit_sobre_ativo",
+    "vlr_ind_roic",
+    "vlr_ind_roe",
+    "vlr_liquidez_corr",
+    "vlr_ind_divida_bruta_sobre_patrim",
+    "vlr_ind_giro_ativos",
+    "vlr_ativo",
+    "vlr_disponibilidades",
+    "vlr_ativ_circulante",
+    "vlr_divida_bruta",
+    "vlr_divida_liq",
+    "vlr_patrim_liq",
+    "vlr_receita_liq_ult_12m",
+    "vlr_ebit_ult_12m",
+    "vlr_lucro_liq_ult_12m",
+    "vlr_receita_liq_ult_3m",
+    "vlr_ebit_ult_3m",
+    "vlr_lucro_liq_ult_3m"
+]
+
+# Definindo colunas de percentual (string) capazes de serem convertidas
+PERCENT_COLS_TO_PARSE = [
+    "pct_var_dia",
+    "pct_var_mes",
+    "pct_var_30d",
+    "pct_var_12m",
+    "pct_var_2023",
+    "pct_var_2022",
+    "pct_var_2021",
+    "pct_var_2020",
+    "pct_var_2019",
+    "pct_var_2018",
+    "pct_cresc_rec_liq_ult_5a",
+]
+
 
 class Fundamentus:
     """Classe responsável por extrair informações do site Fundamentus.
@@ -283,7 +354,9 @@ class Fundamentus:
         request_header: dict = REQUEST_HEADER,
         variation_headings: list = VARIATION_HEADINGS,
         metadata_cols_acoes: dict = METADATA_COLS_ACOES,
-        metadata_cols_fiis: dict = METADATA_COLS_FIIS
+        metadata_cols_fiis: dict = METADATA_COLS_FIIS,
+        float_cols_to_parse: list = FLOAT_COLS_TO_PARSE,
+        percent_cols_to_parse: list = PERCENT_COLS_TO_PARSE
     ) -> None:
         # Configurando objeto de logger
         self.logger_level = logger_level
@@ -303,6 +376,71 @@ class Fundamentus:
         # Definindo colunas de indicadores de ativos
         self.metadata_cols_acoes = metadata_cols_acoes
         self.metadata_cols_fiis = metadata_cols_fiis
+
+        # Definindo colunas capazes de serem alvos de processos de conversão
+        self.float_cols_to_parse = float_cols_to_parse
+        self.percent_cols_to_parse = percent_cols_to_parse
+
+    def __parse_float_cols(
+        self,
+        df: pd.DataFrame,
+        cols_list: list = FLOAT_COLS_TO_PARSE
+    ) -> pd.DataFrame:
+        """
+        Converte strings que representam números em colunas de um DataFrame.
+
+        Este método auxiliar da classe Fundamentus foi criado para facilitar
+        possíveis conversões desejadas pelos usuários em atributos extraídos
+        pelo scrapper que, originalmente, representam dados decimais mas que
+        são coletados como strings. O método conta com alguns tratamentos
+        específicos de strings para garantir que as informações numéricas
+        representadas possam ser devidamente convertidas. Os tratamentos são:
+
+        1. Substituição de caracteres não numéricos para strings vazias (ex R$)
+        2. Substituição de strings vazias por nulos (np.nan)
+        3. Substituição de vírgula por ponto
+        4. Conversão de string para float
+
+        Args:
+            df (pd.DataFrame):
+                DataFrame do Pandas contendo as informações extraídas do
+                scrapper Fundamentus.
+
+            cols_list (list):
+                Lista contendo as colunas decimais (float) a serem tratadas e,
+                posteriormente, convertidas.
+
+        Returns:
+            Um DataFrame do pandas com os campos do tipo float já convertidos.
+        """
+
+        # Iterando sobre colunas numéricas passadas para o método
+        for col in cols_list:
+            # Substituindo todos os caracteres não numéricos para string vazia
+            df[col] = df[col].replace('[^0-9,]', '', regex=True)
+
+            # Substituindo strings vazias por nulos
+            df[col] = df[col].replace("", np.nan)
+
+            # Substituindo delimitador de vírgula por ponto
+            df[col] = df[col].replace(",", ".", regex=True)
+
+            # Convertendo string para float
+            df[col] = df[col].astype(float)
+
+        return df
+
+    def __parse_percent_cols(df: pd.DataFrame, cols_list: list):
+        """
+        ToDo
+        """
+
+        # Iterando sobre colunas
+        for col in cols_list:
+            # Dividindo valor percentual por 100
+            df[col] = df[col] / 100
+
+        return df
 
     def extracao_tickers_de_ativos(self, tipo: str = "ações") -> list[str]:
         """
