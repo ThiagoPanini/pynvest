@@ -1,5 +1,5 @@
 <div align="center">
-    <br><img src="https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/logo-animated-intro-v2.gif?raw=true" alt="pynvest-animated-intro">
+    <br><img src="https://github.com/ThiagoPanini/pynvest/blob/v0.1.x/docs/assets/imgs/logo-v2.png?raw=true" alt="pynvest-logo">
 </div>
 
 <div align="center">  
@@ -25,9 +25,6 @@ ___
   <br>
 </div>
 
-
-> **Note**
-> Uma página completa de documentação da `pynvest` está disponível no [readthedocs](https://pynvest.readthedocs.io/pt/latest/). Acesse e não perca as últimas novidades da biblioteca!
 
 ## Visão Geral
 
