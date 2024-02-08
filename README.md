@@ -1,5 +1,5 @@
 <div align="center">
-    <br><img src="https://github.com/ThiagoPanini/pynvest/blob/v0.1.x/docs/assets/imgs/logo-v2.png?raw=true" width=150 alt="pynvest-logo">
+    <br><img src="https://github.com/ThiagoPanini/pynvest/blob/v0.1.x/docs/assets/imgs/logo-v2.png?raw=true" width=200 alt="pynvest-logo">
 </div>
 
 <div align="center">  
@@ -60,7 +60,7 @@ df_itub3 = pynvest_scrapper.coleta_indicadores_de_ativo("itub3")
 
 ## Readthedocs
 
-🚨 Reforçando pois vale o reforço: existe uma [página oficial de documentação da biblitoeca](https://pynvest.readthedocs.io/pt/latest/) criada com carinho e dedicação para todos os interessados em saber mais a respeito da solução. Viva o open source!
+📚 Para saber mais sobre essa iniciativa, acesse a [página oficial de documentação da biblitoeca](https://pynvest.readthedocs.io/pt/latest/) criada com carinho e dedicação para todos os interessados na solução. Viva o open source!
 
 
 ## Entre em Contato
