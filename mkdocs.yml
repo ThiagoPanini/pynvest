@@ -67,6 +67,12 @@ nav:
     - Arquitetura: quickstart/arquitetura.md
     - Design: quickstart/design.md
 
+  - Documentação:
+    - Scrappers:
+      - Fundamentus: mkdocstrings/scrappers/fundamentus.md
+    - Utils:
+      - log: mkdocstrings/utils/log.md
+
 # Configurando extensões
 markdown_extensions:
   - pymdownx.tasklist:
@@ -95,7 +101,7 @@ markdown_extensions:
 # Plugins
 plugins:
   - search:
-      lang: pt-br
+      lang: pt
   - mkdocstrings
   - drawio_file
   - glightbox
