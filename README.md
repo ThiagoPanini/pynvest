@@ -1,21 +1,51 @@
 <div align="center">
-    <br><img src="https://github.com/ThiagoPanini/pynvest/blob/v0.1.x/docs/assets/imgs/logo-v2.png?raw=true" width=200 alt="pynvest-logo">
+    <br><img src="https://github.com/ThiagoPanini/pynvest/blob/v0.1.x/docs/assets/imgs/logo/logo-com-nome.png?raw=true" width=200 alt="pynvest-logo">
 </div>
 
 <div align="center">  
   <br>
-  
-  [![PyPI](https://img.shields.io/pypi/v/pynvest?style=flate&logo=python&logoColor=FFFFFF&color=22C7FF)](https://pypi.org/project/pynvest/)
-  ![PyPI - Downloads](https://img.shields.io/pypi/dm/pynvest?logo=pypi&logoColor=FFFFFF&color=22C7FF)
-  ![CI workflow](https://img.shields.io/github/actions/workflow/status/ThiagoPanini/pynvest/ci-main.yml?label=ci&logo=github&logoColor=FFFFFF)
-  [![codecov](https://codecov.io/github/ThiagoPanini/pynvest/branch/main/graph/badge.svg?token=L4KO1RM63H)](https://codecov.io/github/ThiagoPanini/pynvest)
-  [![Documentation Status](https://readthedocs.org/projects/pynvest/badge/?version=latest)](https://pynvest.readthedocs.io/en/latest/?badge=latest)
 
-  [![Python](https://img.shields.io/badge/python-grey?style=for-the-badge&logo=python&logoColor=22C7FF)](https://www.python.org/)
-  [![Pytest](https://img.shields.io/badge/pytest-grey?style=for-the-badge&logo=pytest&logoColor=22C7FF)](https://www.python.org/)
-  [![Mkdocs](https://img.shields.io/badge/mkdocs-grey?style=for-the-badge&logo=markdown&logoColor=22C7FF)](https://www.mkdocs.org/)
-  [![Read the Docs](https://img.shields.io/badge/readthedocs-grey?style=for-the-badge&logo=readthedocs&logoColor=22C7FF)](https://readthedocs.org/)
-  [![GitHub](https://img.shields.io/badge/github-grey?style=for-the-badge&logo=github&logoColor=22C7FF)](https://github.com/)
+  <a href="https://pypi.org/project/pynvest/">
+    <img src="https://img.shields.io/pypi/v/pynvest?style=flate&logo=python&logoColor=FFFFFF&color=22C7FF" alt="PyPi shield">
+  </a>
+
+  <a href="">
+    <img src="https://img.shields.io/pypi/dm/pynvest?logo=pypi&logoColor=FFFFFF&color=B252D0">
+  </a>
+  
+  <a href="">
+    <img src="https://img.shields.io/github/actions/workflow/status/ThiagoPanini/pynvest/ci-main.yml?label=ci&logo=github&logoColor=FFFFFF">
+  </a>
+
+  <a href="https://codecov.io/github/ThiagoPanini/pynvest">
+    <img src="https://codecov.io/github/ThiagoPanini/pynvest/branch/main/graph/badge.svg?token=L4KO1RM63H">
+  </a>
+
+  <a href="https://pynvest.readthedocs.io/en/latest/?badge=latest">
+    <img src="https://readthedocs.org/projects/pynvest/badge/?version=latest">
+  </a>
+
+  <br>
+
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/python-grey?style=for-the-badge&logo=python&logoColor=22C7FF">
+  </a>
+
+  <a href="https://docs.pytest.org/">
+    <img src="https://img.shields.io/badge/pytest-grey?style=for-the-badge&logo=pytest&logoColor=22C7FF">
+  </a>
+
+  <a href="https://www.mkdocs.org/">
+    <img src="https://img.shields.io/badge/mkdocs-grey?style=for-the-badge&logo=markdown&logoColor=22C7FF">
+  </a>
+
+  <a href="https://readthedocs.org/">
+    <img src="https://img.shields.io/badge/readthedocs-grey?style=for-the-badge&logo=readthedocs&logoColor=22C7FF">
+  </a>
+
+  <a href="https://github.com/">
+    <img src="https://img.shields.io/badge/github-grey?style=for-the-badge&logo=github&logoColor=22C7FF">
+  </a>
 
 </div>
 
