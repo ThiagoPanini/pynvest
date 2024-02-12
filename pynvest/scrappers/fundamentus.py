@@ -262,7 +262,7 @@ class Fundamentus:
             necessário (nos mesmos moldes do atributo metadata_cols_acoes).
             Assim como no caso mencionado, este processo já é definido
             previamente no próprio módulo e acessível através da variável
-            METADATA_COLS_FIIS.      
+            METADATA_COLS_FIIS.
 
     Tip: Preparação dos atributos da classe Fundamentus
         Você deve ter notado que, em essência, todos os atributos da classe
@@ -423,8 +423,8 @@ class Fundamentus:
             De acordo com a dinâmica do próprio portal Fundamentus, existem
             URLs diferentes para visualização dos tickers de Ações e de FIIs.
 
-            - [Ações]("https://www.fundamentus.com.br/resultado.php")
-            - [FIIs]("https://www.fundamentus.com.br/fii_resultado.php")
+            - [Ações](https://www.fundamentus.com.br/resultado.php)
+            - [FIIs](https://www.fundamentus.com.br/fii_resultado.php)
 
             A requisição via requests e o web scrapping via BeautifulSoup é o
             mesmo para ambas as URLs. Entretanto, pelo fato de existirem URLs
@@ -559,6 +559,16 @@ class Fundamentus:
             ticker (str):
                 Referência do ticker do papel (Ação) ou FII a ser alvo da
                 extração de indicadores.
+
+            parse_dtypes (bool):
+                Flag booleano para habilitar a execução dos métodos de
+                tratamento de tipagem de atributos obtidos no processo de
+                extração de indicadores (`__parse_float_cols` e
+                `__parse_pct_cols`). Em caso de `parse_dtypes=True`, as
+                colunas do tipo `string` que possuem significado numérico
+                (ex: "18,5") e de percentual (ex: "5,25%") são convertidas
+                para o tipo `float` no DataFrame pandas resultante (18.5 e
+                0.0525 nos exemplos fornecidos acima, respectivamente).
 
         Returns:
             DataFrame pandas com indicadores financeiros do ativo escolhido.
