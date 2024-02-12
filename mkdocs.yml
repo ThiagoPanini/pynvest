@@ -67,11 +67,17 @@ nav:
     - Arquitetura: quickstart/arquitetura.md
     - Design: quickstart/design.md
 
-  - Documentação:
-    - Scrappers:
-      - Fundamentus: mkdocstrings/scrappers/fundamentus.md
-    - Utils:
-      - log: mkdocstrings/utils/log.md
+  - Scrappers:
+    - Sobre os Scrappers: scrappers/about.md
+    - Fundamentus:
+      - Documentação:
+        - Classe Fundamentus: scrappers/fundamentus/mkdocstrings/fundamentus.md
+      - Demos:
+        - Coletando Tickers Listados na B3: scrappers/fundamentus/demos/extracao_tickers_de_ativos.md
+        - Coletando Indicadores de Ativos: scrappers/fundamentus/demos/coleta_indicadores_de_ativo.md
+      - Indicadores: 
+        - Ações: scrappers/fundamentus/indicadores/acoes.md
+        - FIIs: scrappers/fundamentus/indicadores/fiis.md
 
 # Configurando extensões
 markdown_extensions:
@@ -105,3 +111,7 @@ plugins:
   - mkdocstrings
   - drawio_file
   - glightbox
+
+# Custom CSS
+extra_css:
+  - assets/stylesheets/extra.css
