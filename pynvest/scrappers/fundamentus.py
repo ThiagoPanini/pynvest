@@ -711,9 +711,7 @@ class Fundamentus:
 
         # Adicionando informação de data e hora de processamento
         now = datetime.now(timezone(timedelta(hours=-3)))
-        date_exec = now.strftime("%d-%m-%Y")
         datetime_exec = now.strftime("%d-%m-%Y %H:%M:%S")
-        df_indicadores_ativo.loc[:, ["date_exec"]] = date_exec
         df_indicadores_ativo.loc[:, ["datetime_exec"]] = datetime_exec
 
         # Validando transformação de tipos primitivos dos atributos
