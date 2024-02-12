@@ -1,3 +1,5 @@
+# Facilitando a Extração de Indicadores
+
 <div align="center">
     <br><img src="https://github.com/ThiagoPanini/pynvest/blob/v0.1.x/docs/assets/imgs/logo/logo-com-nome.png?raw=true" width=200 alt="pynvest-logo">
 </div>
@@ -49,26 +51,25 @@
 
 </div>
 
-___
 
-<div align="center">
-  <br>
-</div>
+## Instalação
 
-
-## Visão Geral
-
-A biblioteca `pynvest` foi criada para facilitar o processo de extração e análise de indicadores financeiros da bolsa de valores brasileira (B3). Isto é obtido através de *web scrappings* aplicados a plataformas/sites financeiros para extração de atributos e valores capazes de proporcionar, aos usuários, uma jornada interessante de análise de dados.
-
-## Quickstart
-
-A instalação da biblioteca pode ser feita através de qualquer gerenciador de pacotes Python, como o [pip](https://pip.pypa.io/en/stable/), por exemplo:
+Para iniciar sua jornada no `pynvest`, basta realizar a instalação da biblioteca utilizando um gerenciador de pacotes de sua preferência (como por exemplo, o [pip](https://pypi.org/project/pip/)):
 
 ```python
 pip install pynvest
 ```
 
-A partir deste ponto, os usuários poderão utilizar *scrappers* capazes de entregar indicadores financeiros em formatos amigáveis (como DataFrames do [pandas](https://pandas.pydata.org/docs/index.html), por exemplo).
+???+ tip "Sobre ambientes virtuais Python"
+    Eventualmente, você pode querer realizar este processo de instalação em um [ambiente virtual Python](https://docs.python.org/3/library/venv.html). Para mais infromações a respeito, este [excelente artigo](https://realpython.com/python-virtual-environments-a-primer/) pode ajudar a desbravar esse conhecimento.
+
+Uma vez instalada a biblioteca, a dinâmica de uso sob a ótica do usuário pode ser resumida a:
+
+1. Usuário importa uma classe de um dos *scrappers* disponíveis
+2. Usuário cria um objeto dessa classe importada
+3. Usuário chamada os métodos disponíveis para obter indicadores financeiros
+
+Abaixo é possível visualizar um exemplo de chamada do método [coleta_indicadores_de_ativo()]() para obtenção de um DataFrame pandas com indicadores financeiros de um determinado ativo:
 
 ```python
 # Importando classe
@@ -81,21 +82,9 @@ pynvest_scrapper = Fundamentus()
 df_itub3 = pynvest_scrapper.coleta_indicadores_de_ativo("itub3")
 ```
 
-<details>
-  <summary>📽️ Demonstração de método de extração de indicadores financeiros</summary>
+???+ example "Exemplo de funcionamento prático de um dos métodos da biblioteca"
+    [![Um GIF mostrando a execução do método coleta_indicadores_de_ativo() com o parâmetro "ticker" igual a uma ação (ex: "itub3")](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_acao.gif?raw=true)](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_acao.gif?raw=true)
 
-  [![Um GIF mostrando a execução do método coleta_indicadores_de_ativo() com o parâmetro "ticker" igual a uma ação (ex: "itub3")](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_acao.gif?raw=true)](https://github.com/ThiagoPanini/pynvest/blob/docs/atualizacao-de-documentacao/docs/assets/gifs/pynvest-coleta_indicadores_de_ativo_acao.gif?raw=true)
-  
-</details>
+## Navegando pela Doc
 
-## Readthedocs
-
-📚 Para saber mais sobre essa iniciativa, acesse a [página oficial de documentação da biblitoeca](https://pynvest.readthedocs.io/pt/latest/) criada com carinho e dedicação para todos os interessados na solução. Viva o open source!
-
-
-## Entre em Contato
-
-- GitHub: [@ThiagoPanini](https://github.com/ThiagoPanini)
-- LinkedIn: [Thiago Panini](https://www.linkedin.com/in/thiago-panini/)
-- Hashnode: [panini-tech-lab](https://panini.hashnode.dev/)
-- DevTo: [thiagopanini](https://dev.to/thiagopanini)
+Nesta página de documentação, você encontrará todos os detalhes relacionados à biblitoeca `pynvest`, da sua concepção até dicas fundamentais de usabilidade.

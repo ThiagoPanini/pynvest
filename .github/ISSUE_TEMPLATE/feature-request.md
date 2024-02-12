@@ -7,23 +7,36 @@ assignees: ThiagoPanini
 
 ---
 
-:rocket: **_Feature needed:_**
+🚀 **_Funcionalidade requerida:_**
+
 ToDo: forneça detalhes sobre as funcionalidades requeridas.
+
 ___
-:trophy: **_Feature benefits:_**
+
+🏆 **_Benefícios da nova funcionalidade:_**
+
 Possíveis benefícios atrelados à nova funcionalidade
 * Aprimoramento...
 * Melhoria...
 * Garantia de que...
 * Aumento...
 * ...
+
 ___
-:books: **_Complexidade:_**
-É provável que esta nova funcionalidade tenha
-- [Extreme/High/Medium/Low] complexidade
+
+🧙‍♂️ **_Complexidade:_**
+
+- [ ] Extrema
+- [ ] Alta
+- [ ] Média
+- [ ] Baixa
+
 ___
-:bulb: **_Ideias de desenvolvimento:_**
+
+💡 **_Ideias de desenvolvimento:_** [OPCIONAL]
+
 Alguns caminhos promissores para o desenvolvimento desta nova funcionalidade seriam:
+
 - Procurar por...
 - Aplicar...
 - Tentar...

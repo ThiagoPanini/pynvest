@@ -16,6 +16,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timezone, timedelta
 
 import pandas as pd
+import numpy as np
 
 
 """ -------------------------------------------------
@@ -304,6 +305,104 @@ class Fundamentus:
         self.metadata_cols_acoes = metadata_cols_acoes
         self.metadata_cols_fiis = metadata_cols_fiis
 
+    @staticmethod
+    def __parse_float_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
+        """
+        Transforma strings que representam números em objetos do tipo float.
+
+        Este método pode ser utilizado para aplicar conversões de atributos do
+        tipo string presentes em um DataFrame do pandas em objetos do tipo
+        float (desde que tais strings possam ser convertidas para floats).
+        Esta funcionalidade é relevante pois, na extração bruta das informações
+        pelo processo de scrapper, todos os atributos são originalmente
+        estabelecidos no DataFrame pandas como strings, o que pode dificultar
+        análises posteriores por parte de usuários.
+
+        O método conta com alguns tratamentos específicos de strings para
+        garantir que as informações numéricas representadas possam ser
+        devidamente convertidas. Os tratamentos são:
+
+        1. Substituição de caracteres não numéricos para strings vazias (ex R$)
+        2. Substituição de strings vazias por nulos (np.nan)
+        3. Substituição de vírgula por ponto
+        4. Conversão de string para float
+
+        Args:
+            df (pd.DataFrame):
+                DataFrame do Pandas contendo as informações extraídas do
+                scrapper Fundamentus.
+
+            cols_list (list):
+                Lista contendo as colunas decimais (float) a serem tratadas e,
+                posteriormente, convertidas.
+
+        Returns:
+            Um DataFrame do pandas com os campos do tipo float já convertidos.
+        """
+
+        # Iterando sobre colunas numéricas passadas para o método
+        for col in cols_list:
+            # Substituindo todos os caracteres não numéricos para string vazia
+            df[col] = df[col].replace('[^0-9,]', '', regex=True)
+
+            # Substituindo strings vazias por nulos
+            df[col] = df[col].replace("", np.nan)
+
+            # Substituindo delimitador de vírgula por ponto
+            df[col] = df[col].replace(",", ".", regex=True)
+
+            # Convertendo string para float
+            df[col] = df[col].astype(float)
+
+        return df
+
+    @staticmethod
+    def __parse_pct_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
+        """
+        Transforma strings que representam percentuais em objetos do tipo float
+
+        Este método pode ser utilizado para aplicar conversões de atributos do
+        tipo string e que possuem um significado percentual em objetos do tipo
+        float (desde que tais strings possam ser convertidas para floats).
+        Esta funcionalidade é relevante pois, na extração bruta das informações
+        pelo processo de scrapper, todos os atributos são originalmente
+        estabelecidos no DataFrame pandas como strings, o que pode dificultar
+        análises posteriores por parte de usuários.
+
+        O método conta com alguns tratamentos específicos de strings para
+        garantir que as informações numéricas representadas possam ser
+        devidamente convertidas. Os tratamentos são:
+
+        1. Substituição do caractere '%' em string vazia
+        2. Conversão de string para float
+        3. Divisão do valor literal do percentual por 100
+
+        Args:
+            df (pd.DataFrame):
+                DataFrame do Pandas contendo as informações extraídas do
+                scrapper Fundamentus.
+
+            cols_list (list):
+                Lista contendo as colunas decimais (float) a serem tratadas e,
+                posteriormente, convertidas.
+
+        Returns:
+            Um DataFrame do pandas com os campos do tipo float já convertidos.
+        """
+
+        # Iterando sobre colunas
+        for col in cols_list:
+            # Removendo '%' da string
+            df[col] = df[col].replace("%", "")
+
+            # Dividindo valor percentual por 100
+            df[col] = df[col] / 100
+
+            # Convertendo string para float
+            df[col] = df[col].astype(float)
+
+        return df
+
     def extracao_tickers_de_ativos(self, tipo: str = "ações") -> list[str]:
         """
         Extrai uma lista formada por tickers de ações ou FIIs listados na B3.
@@ -324,8 +423,8 @@ class Fundamentus:
             De acordo com a dinâmica do próprio portal Fundamentus, existem
             URLs diferentes para visualização dos tickers de Ações e de FIIs.
 
-            - [Ações]("https://www.fundamentus.com.br/resultado.php")
-            - [FIIs]("https://www.fundamentus.com.br/fii_resultado.php")
+            - [Ações](https://www.fundamentus.com.br/resultado.php)
+            - [FIIs](https://www.fundamentus.com.br/fii_resultado.php)
 
             A requisição via requests e o web scrapping via BeautifulSoup é o
             mesmo para ambas as URLs. Entretanto, pelo fato de existirem URLs
@@ -402,7 +501,11 @@ class Fundamentus:
 
         return sorted(list(set(tickers)))
 
-    def coleta_indicadores_de_ativo(self, ticker: str) -> pd.DataFrame:
+    def coleta_indicadores_de_ativo(
+        self,
+        ticker: str,
+        parse_dtypes: bool = False
+    ) -> pd.DataFrame:
         """
         Extrai indicadores de um ativo específico em um formato de DataFrame.
 
@@ -456,6 +559,16 @@ class Fundamentus:
             ticker (str):
                 Referência do ticker do papel (Ação) ou FII a ser alvo da
                 extração de indicadores.
+
+            parse_dtypes (bool):
+                Flag booleano para habilitar a execução dos métodos de
+                tratamento de tipagem de atributos obtidos no processo de
+                extração de indicadores (`__parse_float_cols` e
+                `__parse_pct_cols`). Em caso de `parse_dtypes=True`, as
+                colunas do tipo `string` que possuem significado numérico
+                (ex: "18,5") e de percentual (ex: "5,25%") são convertidas
+                para o tipo `float` no DataFrame pandas resultante (18.5 e
+                0.0525 nos exemplos fornecidos acima, respectivamente).
 
         Returns:
             DataFrame pandas com indicadores financeiros do ativo escolhido.
@@ -603,4 +716,36 @@ class Fundamentus:
         df_indicadores_ativo.loc[:, ["date_exec"]] = date_exec
         df_indicadores_ativo.loc[:, ["datetime_exec"]] = datetime_exec
 
-        return df_indicadores_ativo
+        # Validando transformação de tipos primitivos dos atributos
+        if parse_dtypes:
+            # Coletando atributos de string que representam números
+            float_cols_to_parse = [
+                col for col in list(df_indicadores_ativo.columns)
+                if col[:4] in (
+                    "vlr_", "vol_", "num_", "pct_", "qtd_", "max_", "min_",
+                    "total_"
+                )
+            ]
+
+            # Coletando apenas atributos que representam percentuais
+            percent_cols_to_parse = [
+                col for col in float_cols_to_parse if col[:4] in ("pct_")
+            ]
+
+            # Transformando strings que representam números
+            df_indicadores_ativo_float_prep = self.__parse_float_cols(
+                df=df_indicadores_ativo,
+                cols_list=float_cols_to_parse
+            )
+
+            # Transformando percentuais que representam números
+            df_indicadores_ativo_prep = self.__parse_pct_cols(
+                df=df_indicadores_ativo_float_prep,
+                cols_list=percent_cols_to_parse
+            )
+
+        else:
+            # Em caso de não conversão, manter mesmo DataFrame
+            df_indicadores_ativo_prep = df_indicadores_ativo
+
+        return df_indicadores_ativo_prep

@@ -7,5 +7,10 @@ assignees: ThiagoPanini
 
 ---
 
-:books: **_Aprimoramentos necessários:_**
-ToDo: Forneça detalhes sobre os elementos de documentação que precisam ser aprimorados ou inclusos.
+📚 **_Aprimoramentos necessários:_**
+
+ToDo: Liste aqui seções, módulos, classes ou funções que precisam melhorar, corrigir ou até mesmo incluir documentações:
+
+- Seção X
+- Módulo Y
+- Método Z da Classe W

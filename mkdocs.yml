@@ -1,35 +1,32 @@
-# Project main info
+# Informações principais do projeto
 site_name: pynvest
 site_url: https://pynvest.readthedocs.io/en/latest/
 site_author: Thiago Panini
-site_description: >-
-  Um pacote Python capaz de extrair informações e indicadores
-  de ativos financeiros a partir de sites especializados
-  (ex: Fundamentus)
+site_description : >-
+  Um pacote Python capaz de utilizar processos de web scrapping para
+  extrair informações e indicadores de ativos financeiros listados
+  na bolsa de valores em sites especializados.
 
-# Source repo info
+# Informações do repositório com o código fonte
 repo_name: ThiagoPanini/pynvest
 repo_url: https://github.com/ThiagoPanini/pynvest
 
 # Copyright
 copyright: |
-  Copyright &copy; 2023 <a href="https://github.com/ThiagoPanini"  target="_blank" rel="noopener">ThiagoPanini</a>
+  Copyright &copy; 2023-2024 <a href="https://github.com/ThiagoPanini"  target="_blank" rel="noopener">ThiagoPanini</a>
 
-# Setting up docs dir
-docs_dir: docs/mkdocs
-
-# Setting up theme
+# Configuração do tema
 theme:
   name: material
 
-  # Pointing a additional dir for custom setup
-  custom_dir: docs/assets
+  # Diretório adicional para customização do tema
+  custom_dir: docs/overrides
 
-  # Setting up a custom icon for site header
-  icon:
-    logo: custom/custom-icon
+  # Customizando ícone no header da página
+  # icon:
+  #   logo: tmp
 
-  # Setting up a color palette
+  # Configurando paleta de cores
   palette:
     - media: "(prefers-color-scheme: light)"
       scheme: default
@@ -37,16 +34,16 @@ theme:
       accent: white
       toggle:
         icon: material/weather-sunny
-        name: Tap for dark mode
+        name: Toque para modo escuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
       primary: black
       accent: black
       toggle:
         icon: material/weather-night
-        name: Tap for light mode
+        name: Toque para modo claro
 
-  # Setting up template features
+  # Configurando features da documentação
   features:
     - navigation.tabs
     - navigation.top
@@ -60,48 +57,29 @@ theme:
     - search.suggest
     - content.code.copy
 
-# Setting up navigation
+# Navegação
 nav:
-  # ToDos:
-    # Ajustar documentação, checar links e ajustar textos
-    # Criar página de contribuição
-    # Criar página de FAQ
   - Início:
     - pynvest: index.md
-    - Arquitetura: arquitetura.md
-    - Design: design.md
   
-  - Documentação:
-    - Scrappers:
-      - Fundamentus: mkdocstrings/scrappers/fundamentus.md
-    - Utils:
-      - log: mkdocstrings/utils/log.md
-    
-  - Demos:
-    - Sobre as Demos: demos/about-demos.md
-    - Scrappers:
-      - Fundamentus:
-        - extracao_tickers_de_ativos(): demos/fundamentus/extracao_tickers_de_ativos.md
-        - coleta_indicadores_de_ativo(): demos/fundamentus/coleta_indicadores_de_ativo.md
-  
-  - Indicadores: 
-    - Sobre os Indicadores: indicadores/sobre-indicadores.md
-    - Scrappers:
-      - Fundamentus:
-        - Ações: indicadores/scrappers/fundamentus/acoes.md
-        - Fundos Imobiliários: indicadores/scrappers/fundamentus/fiis.md
-  
-  - Tools:
-    - O pynvest-tools: tools/pynvest-tools.md
-    - Variáveis do Módulo: tools/variaveis.md
-    - Demo: tools/demo.md
+  - Quickstart:
+    - Instalação: quickstart/instalacao.md
+    - Arquitetura: quickstart/arquitetura.md
+    - Design: quickstart/design.md
 
-  - Contribuindo: contribuindo/contribuindo.md
-  
-  - FAQ: faq/faq.md
+  - Scrappers:
+    - Sobre os Scrappers: scrappers/about.md
+    - Fundamentus:
+      - Documentação:
+        - Classe Fundamentus: scrappers/fundamentus/mkdocstrings/fundamentus.md
+      - Demos:
+        - Coletando Tickers Listados na B3: scrappers/fundamentus/demos/extracao_tickers_de_ativos.md
+        - Coletando Indicadores de Ativos: scrappers/fundamentus/demos/coleta_indicadores_de_ativo.md
+      - Indicadores: 
+        - Ações: scrappers/fundamentus/indicadores/acoes.md
+        - FIIs: scrappers/fundamentus/indicadores/fiis.md
 
-
-# Setting up MkDocs extensions
+# Configurando extensões
 markdown_extensions:
   - pymdownx.tasklist:
       custom_checkbox: true
@@ -118,22 +96,22 @@ markdown_extensions:
   - toc:
       permalink: true
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
       options:
         custom_icons:
           - overrides/.icons
   - attr_list
   - md_in_html
 
-# Custom CSS
-extra_css:
-  - stylesheets/extra.css
-
 # Plugins
 plugins:
   - search:
-      lang: en
+      lang: pt
   - mkdocstrings
   - drawio_file
   - glightbox
+
+# Custom CSS
+extra_css:
+  - assets/stylesheets/extra.css
