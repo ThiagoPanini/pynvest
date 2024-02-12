@@ -1,4 +1,4 @@
-# Organização das Páginas
+# Scrappers
 
 A proposta desta seção é propor uma visão consolidada contendo todos os detalhes relacionados aos *scrappers* disponíveis para uso na biblioteca. A ideia é que cada *scrapper* tenha o seu próprio combo de documentação composto por:
 

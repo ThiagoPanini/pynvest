@@ -68,7 +68,7 @@ nav:
     - Design: quickstart/design.md
 
   - Scrappers:
-    - Sobre os Scrappers: scrappers/about.md
+    - scrappers/index.md
     - Fundamentus:
       - Documentação:
         - Classe Fundamentus: scrappers/fundamentus/mkdocstrings/fundamentus.md
