@@ -1,6 +1,6 @@
 # Fundamentus: Indicadores de Ações
 
-De forma objetiva, a tabela abaixo contempla uma lista de indicadores financeiros (e suas respectivas definições/descrições) disponíveis no site e obtidos como resultado do método [coleta_indicadores_de_ativo()](../../../mkdocstrings/scrappers/fundamentus.md/#pynvest.scrappers.fundamentus.Fundamentus.coleta_indicadores_de_ativo).
+De forma objetiva, a tabela abaixo contempla uma lista de indicadores financeiros (e suas respectivas definições/descrições) disponíveis no site e obtidos como resultado do método [coleta_indicadores_de_ativo()](../mkdocstrings/fundamentus.md/#pynvest.scrappers.fundamentus.Fundamentus.coleta_indicadores_de_ativo).
 
 | **Nome Original** | **Atributo DataFrame** | **Descrição** |
 | :-- | :-- | :-- |

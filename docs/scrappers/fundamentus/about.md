@@ -1,2 +1,0 @@
-# Sobre o Scrapper
-

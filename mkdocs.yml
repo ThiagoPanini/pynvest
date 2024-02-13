@@ -78,6 +78,13 @@ nav:
       - Indicadores: 
         - Ações: scrappers/fundamentus/indicadores/acoes.md
         - FIIs: scrappers/fundamentus/indicadores/fiis.md
+  
+  - Tools:
+    - O pynvest-tools: tools/pynvest-tools.md
+    - Variáveis do Módulo: tools/variaveis.md
+    - Demo: tools/demo.md
+    
+  - Contribuindo: contribuindo/contribuindo.md
 
 # Configurando extensões
 markdown_extensions:
