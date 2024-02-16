@@ -306,7 +306,7 @@ class Fundamentus:
         self.metadata_cols_fiis = metadata_cols_fiis
 
     @staticmethod
-    def __parse_float_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
+    def _parse_float_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
         """
         Transforma strings que representam números em objetos do tipo float.
 
@@ -357,7 +357,7 @@ class Fundamentus:
         return df
 
     @staticmethod
-    def __parse_pct_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
+    def _parse_pct_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
         """
         Transforma strings que representam percentuais em objetos do tipo float
 
@@ -731,13 +731,13 @@ class Fundamentus:
             ]
 
             # Transformando strings que representam números
-            df_indicadores_ativo_float_prep = self.__parse_float_cols(
+            df_indicadores_ativo_float_prep = self._parse_float_cols(
                 df=df_indicadores_ativo,
                 cols_list=float_cols_to_parse
             )
 
             # Transformando percentuais que representam números
-            df_indicadores_ativo_prep = self.__parse_pct_cols(
+            df_indicadores_ativo_prep = self._parse_pct_cols(
                 df=df_indicadores_ativo_float_prep,
                 cols_list=percent_cols_to_parse
             )
