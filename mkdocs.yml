@@ -13,7 +13,22 @@ repo_url: https://github.com/ThiagoPanini/pynvest
 
 # Copyright
 copyright: |
-  Copyright &copy; 2023-2024 <a href="https://github.com/ThiagoPanini"  target="_blank" rel="noopener">ThiagoPanini</a>
+  Copyright &copy; 2023-2024 <a href="https://github.com/ThiagoPanini"  target="_blank" rel="noopener">Thiago Panini</a>
+
+# Configurando social media no footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ThiagoPanini
+      name: Thiago Panini no Github
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/thiago-panini/
+      name: Thiago Panini no LinkedIn
+    - icon: fontawesome/brands/hashnode
+      link: https://panini.hashnode.dev/
+      name: Blog panini-tech-lab no Hashnode
+    
+
 
 # Configuração do tema
 theme:
@@ -80,10 +95,13 @@ nav:
         - FIIs: scrappers/fundamentus/indicadores/fiis.md
   
   - Tools:
-    - O pynvest-tools: tools/pynvest-tools.md
-    - Variáveis do Módulo: tools/variaveis.md
-    - Demo: tools/demo.md
-    
+    - O Módulo Pynvest Tools: tools/tools.md
+    - Detalhes da Solução:
+      - Arquitetura: tools/arquitetura.md
+      - Recursos Provisionados: tools/recursos.md
+      - Etapas do Processo: tools/processo.md
+    - Quickstart: tools/quickstart.md
+
   - Contribuindo: contribuindo/contribuindo.md
 
 # Configurando extensões

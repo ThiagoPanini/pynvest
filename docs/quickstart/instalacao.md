@@ -4,8 +4,7 @@
     <br><img src="https://github.com/ThiagoPanini/pynvest/blob/v0.1.x/docs/assets/imgs/logo/logo-com-nome.png?raw=true" width=200 alt="pynvest-logo">
 </div>
 
-<div align="center">  
-  <br>
+<div align="center">
 
   <a href="https://pypi.org/project/pynvest/">
     <img src="https://img.shields.io/pypi/v/pynvest?style=flate&logo=python&logoColor=FFFFFF&color=22C7FF" alt="PyPi shield">
