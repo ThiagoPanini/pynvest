@@ -2,7 +2,7 @@
 
 Você já imaginou ter todo um conjunto de serviços AWS implantados em seu ambiente pessoal para extrair, armazenar e atualizar recorrentemente **indicadores financeiros** de ativos da B3?
 
-Se sim, você precisa conhecer o [pynvest-tools](https://github.com/ThiagoPanini/pynvest-tools) como um módulo Terraform capaz de proporcionar a implantação de recursos AWS estrategicamente desenvolvidos para habilitar todo um *pool* de análise de dados financeiros.
+Se sim, você precisa conhecer o [pynvest-tools](https://github.com/ThiagoPanini/pynvest-tools) como um módulo Terraform capaz de implantar recursos AWS estrategicamente desenvolvidos com o intuito de permitir com que seus usuários obtenham e analisem dados financeiros.
 
 <div align="center">
     <br><img src="https://github.com/ThiagoPanini/pynvest-tools/blob/v0.2.x/docs/imgs/logo/logo.png?raw=true" width=250 alt="pynvest-logo">
@@ -31,7 +31,7 @@ Se sim, você precisa conhecer o [pynvest-tools](https://github.com/ThiagoPanini
 
 ## Visão Geral
 
-Sendo um módulo Terraform disponibilizado de forma totalmente gratuita, os usuários que decidirem utilizar o `pynvest-tools` em seus respectivos ambientes AWS, poderão obter, entre outros benefícios:
+Dado o contexto introdutório fornecido acima, os usuários que decidirem utilizar o `pynvest-tools` em seus respectivos ambientes AWS, poderão obter, entre outros benefícios:
 
 - 🎯 Um processo agendado via [Eventbridge](https://aws.amazon.com/pt/eventbridge/) para obtenção e atualização diária de indicadores financeiros
 - 📖 Tabelas previamente definidas no [Glue Data Catalog](https://docs.aws.amazon.com/pt_br/glue/latest/dg/start-data-catalog.html) para consultas em ferramentas analíticas
@@ -41,6 +41,11 @@ Sendo um módulo Terraform disponibilizado de forma totalmente gratuita, os usu�
 ## Saiba Mais
 
 Navegue pelos tópicos desta seção para descobrir, de uma vez por todas, como o módulo Terraform `pynvest-tools` pode te ajudar a unir elementos do mundo financeiro em um ambiente totalmente *cloud native*.
+
+- Visite a página de [primeiros passos](./quickstart.md) para aprender como chamar o módulo em seu projeto Terraform
+- Em [variáveis do módulo](./variaveis.md), você poderá visualizar todas as diferentes formas de customizar os recursos provisionados
+- Para compreender todos os detalhes técnicos por trás da solução, navegue até as páginas de [arquitetura](./arquitetura.md), [recursos provisionados](./recursos.md) e [etapas do processo](./processo.md)
+- Há, ainda, diversos [exemplos de análises](./queries.md) no Athena disponíveis para o usuário destravar todo o potencial do módulo
 
 <small>
   :octicons-history-16:

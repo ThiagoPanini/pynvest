@@ -96,11 +96,14 @@ nav:
   
   - Tools:
     - O Módulo Pynvest Tools: tools/tools.md
+    - Quickstart:
+      - Chamando o Módulo: tools/quickstart.md
+      - Variáveis do Módulo: tools/variaveis.md
     - Detalhes da Solução:
       - Arquitetura: tools/arquitetura.md
       - Recursos Provisionados: tools/recursos.md
       - Etapas do Processo: tools/processo.md
-    - Quickstart: tools/quickstart.md
+    - Exemplos de Análises: tools/queries.md
 
   - Contribuindo: contribuindo/contribuindo.md
 
