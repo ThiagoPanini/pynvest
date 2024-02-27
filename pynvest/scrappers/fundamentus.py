@@ -102,14 +102,6 @@ METADATA_COLS_ACOES = {
     "Receita Líquida": "vlr_receita_liq_ult_3m",
     "EBIT": "vlr_ebit_ult_3m",
     "Lucro Líquido": "vlr_lucro_liq_ult_3m"
-    # "Cart. de Crédito": "vlr_cart_de_cred",
-    # "Depósitos": "vlr_depositos",
-    # "Patrim. Líq": "vlr_patrim_liq",
-    # "Result Int Financ_1": "vlr_result_int_financ_ult_12m",
-    # "Rec Serviços_1": "vlr_rec_servicos_ult_12m",
-    # "Lucro Líquido_1": "vlr_lucro_liq_ult_12m",
-    # "Result Int Financ": "vlr_result_int_financ_ult_3m",
-    # "Rec Serviços": "vlr_rec_servicos_ult_3m"
 }
 
 # Estabelecendo indicadores financeiros de ações
