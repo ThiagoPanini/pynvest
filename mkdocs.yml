@@ -15,8 +15,9 @@ repo_url: https://github.com/ThiagoPanini/pynvest
 copyright: |
   Copyright &copy; 2023-2024 <a href="https://github.com/ThiagoPanini"  target="_blank" rel="noopener">Thiago Panini</a>
 
-# Configurando social media no footer
+# Configurações extras da documentação
 extra:
+  # Redes sociais no footer
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/ThiagoPanini
@@ -27,6 +28,24 @@ extra:
     - icon: fontawesome/brands/hashnode
       link: https://panini.hashnode.dev/
       name: Blog panini-tech-lab no Hashnode
+  
+  # Google Analytics
+  analytics:
+    provider: google
+    property: G-TSTKJMFJS3
+    feedback:
+      title: Esta página foi útil?
+      ratings:
+        - icon: material/thumb-up-outline
+          name: Sim, sensacional!
+          data: 1
+          note: >-
+            Obrigado pelo seu feedback!
+        - icon: material/thumb-down-outline
+          name: Não, precisa de melhorias
+          data: 0
+          note: >- 
+            Obrigado pelo seu feedback! Tentaremos melhorar!
 
 # Configuração do tema
 theme:
@@ -140,6 +159,12 @@ plugins:
   - mkdocstrings
   - drawio_file
   - glightbox
+  - git-committers:
+      repository: ThiagoPanini/pynvest
+      branch: main
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: timeago
 
 # Custom CSS
 extra_css:
