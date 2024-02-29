@@ -19,6 +19,11 @@ Referências visuais para construção do logo:
 
 A imagem na [home](../index.md) da documentação foi criada utilizando a ilustração [Financial Data Isometric](https://storyset.com/illustration/financial-data/amico) da página [storyset](https://storyset.com/).
 
+???+ tip "Sobre a conversão das imagens para a geração de ícones customizados"
+    Para conseguir gerar os logos customizados no cabeçalho da página, foi preciso realizar algumas etapas:
+
+    1. Converter a imagem PNG em um formato ICO utilizando as dimensões 32x32px ([cloudconvert](https://cloudconvert.com/png-to-ico))
+    2. Converter o arquivo ICO gerado para o formato SVG mantendo os *presets* de cores ([pixelied](https://pixelied.com/convert/png-converter/png-to-svg))
 
 ## Fontes
 
@@ -57,3 +62,5 @@ A imagem na [home](../index.md) da documentação foi criada utilizando a ilustr
 - [slidesgo](https://slidesgo.com/pt/)
 - [storyset](https://storyset.com/)
 - [Power Point](https://www.microsoft.com/en-us/microsoft-365/powerpoint)
+- [cloudconvert](https://cloudconvert.com/png-to-ico)
+- [pixelied](https://pixelied.com/convert/png-converter/png-to-svg)

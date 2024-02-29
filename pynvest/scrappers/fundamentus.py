@@ -62,12 +62,12 @@ METADATA_COLS_ACOES = {
     "Mês": "pct_var_mes",
     "30 dias": "pct_var_30d",
     "12 meses": "pct_var_12m",
-    "2023": "pct_var_2023",
-    "2022": "pct_var_2022",
-    "2021": "pct_var_2021",
-    "2020": "pct_var_2020",
-    "2019": "pct_var_2019",
-    "2018": "pct_var_2018",
+    str(datetime.now().year): "pct_var_ano_a0",
+    str(datetime.now().year - 1): "pct_var_ano_a1",
+    str(datetime.now().year - 2): "pct_var_ano_a2",
+    str(datetime.now().year - 3): "pct_var_ano_a3",
+    str(datetime.now().year - 4): "pct_var_ano_a4",
+    str(datetime.now().year - 5): "pct_var_ano_a5",
     "P/L": "vlr_ind_p_sobre_l",
     "P/VP": "vlr_ind_p_sobre_vp",
     "P/EBIT": "vlr_ind_p_sobre_ebit",
@@ -102,14 +102,6 @@ METADATA_COLS_ACOES = {
     "Receita Líquida": "vlr_receita_liq_ult_3m",
     "EBIT": "vlr_ebit_ult_3m",
     "Lucro Líquido": "vlr_lucro_liq_ult_3m"
-    # "Cart. de Crédito": "vlr_cart_de_cred",
-    # "Depósitos": "vlr_depositos",
-    # "Patrim. Líq": "vlr_patrim_liq",
-    # "Result Int Financ_1": "vlr_result_int_financ_ult_12m",
-    # "Rec Serviços_1": "vlr_rec_servicos_ult_12m",
-    # "Lucro Líquido_1": "vlr_lucro_liq_ult_12m",
-    # "Result Int Financ": "vlr_result_int_financ_ult_3m",
-    # "Rec Serviços": "vlr_rec_servicos_ult_3m"
 }
 
 # Estabelecendo indicadores financeiros de ações
@@ -120,9 +112,9 @@ METADATA_COLS_FIIS = {
     "Segmento": "segmento",
     "Gestão": "tipo_gestao",
     "Cotação": "vlr_cot",
-    "Data últ cot": "data_ult_cot",
-    "Min 52 sem": "min_52_sem",
-    "Max 52 sem": "max_52_sem",
+    "Data últ cot": "dt_ult_cot",
+    "Min 52 sem": "vlr_min_52_sem",
+    "Max 52 sem": "vlr_max_52_sem",
     "Vol $ méd (2m)": "vol_med_neg_2m",
     "Valor de mercado": "vlr_mercado",
     "Nro. Cotas": "num_cotas",
@@ -132,12 +124,12 @@ METADATA_COLS_FIIS = {
     "Mês": "pct_var_mes",
     "30 dias": "pct_var_30d",
     "12 meses": "pct_var_12m",
-    "2023": "pct_var_2023",
-    "2022": "pct_var_2022",
-    "2021": "pct_var_2021",
-    "2020": "pct_var_2020",
-    "2019": "pct_var_2019",
-    "2018": "pct_var_2018",
+    str(datetime.now().year): "pct_var_ano_a0",
+    str(datetime.now().year - 1): "pct_var_ano_a1",
+    str(datetime.now().year - 2): "pct_var_ano_a2",
+    str(datetime.now().year - 3): "pct_var_ano_a3",
+    str(datetime.now().year - 4): "pct_var_ano_a4",
+    str(datetime.now().year - 5): "pct_var_ano_a5",
     "FFO Yield": "vlr_ffo_yield",
     "FFO/Cota": "vlr_ffo_sobre_cota",
     "Div. Yield": "vlr_div_yield",
@@ -306,7 +298,7 @@ class Fundamentus:
         self.metadata_cols_fiis = metadata_cols_fiis
 
     @staticmethod
-    def __parse_float_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
+    def _parse_float_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
         """
         Transforma strings que representam números em objetos do tipo float.
 
@@ -357,7 +349,7 @@ class Fundamentus:
         return df
 
     @staticmethod
-    def __parse_pct_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
+    def _parse_pct_cols(df: pd.DataFrame, cols_list: list) -> pd.DataFrame:
         """
         Transforma strings que representam percentuais em objetos do tipo float
 
@@ -711,9 +703,7 @@ class Fundamentus:
 
         # Adicionando informação de data e hora de processamento
         now = datetime.now(timezone(timedelta(hours=-3)))
-        date_exec = now.strftime("%d-%m-%Y")
         datetime_exec = now.strftime("%d-%m-%Y %H:%M:%S")
-        df_indicadores_ativo.loc[:, ["date_exec"]] = date_exec
         df_indicadores_ativo.loc[:, ["datetime_exec"]] = datetime_exec
 
         # Validando transformação de tipos primitivos dos atributos
@@ -733,13 +723,13 @@ class Fundamentus:
             ]
 
             # Transformando strings que representam números
-            df_indicadores_ativo_float_prep = self.__parse_float_cols(
+            df_indicadores_ativo_float_prep = self._parse_float_cols(
                 df=df_indicadores_ativo,
                 cols_list=float_cols_to_parse
             )
 
             # Transformando percentuais que representam números
-            df_indicadores_ativo_prep = self.__parse_pct_cols(
+            df_indicadores_ativo_prep = self._parse_pct_cols(
                 df=df_indicadores_ativo_float_prep,
                 cols_list=percent_cols_to_parse
             )

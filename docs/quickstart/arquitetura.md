@@ -37,4 +37,7 @@ Apresentada a estratégia de funcionamento, a biblioteca possui essa árvore de 
     └───__init__.py
 ```
 
-> Aqui, é possível entender claramente a relação entre *scrappers* e portais de indicadores financeiros. O submódulo `fundamentus.py` contém funções, classes e métodos especialmente construídos para contemplar toda a dinâmica de extração e tratamento de dados contidos no site Fundamentus.
+<small>
+  :octicons-light-bulb-16:
+  **Dica:** Aqui, é possível entender claramente a relação entre *scrappers* e portais de indicadores financeiros. O submódulo `fundamentus.py` contém funções, classes e métodos especialmente construídos para contemplar toda a dinâmica de extração e tratamento de dados contidos no site Fundamentus.
+</small>

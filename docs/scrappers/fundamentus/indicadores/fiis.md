@@ -1,6 +1,6 @@
 # Fundamentus: Indicadores de FIIs
 
-No portal Fundamentus, Fundos Imobiliários possuem seus próprios indicadores fundamentalistas. A tabela abaixo traz a visão daquilo que também é obtido pela chamada do método [coleta_indicadores_de_ativo()](../../../mkdocstrings/scrappers/fundamentus.md/#pynvest.scrappers.fundamentus.Fundamentus.coleta_indicadores_de_ativo) com *tickers* de FIIs.
+No portal Fundamentus, Fundos Imobiliários possuem seus próprios indicadores fundamentalistas. A tabela abaixo traz a visão daquilo que também é obtido pela chamada do método [coleta_indicadores_de_ativo()](../mkdocstrings/fundamentus.md/#pynvest.scrappers.fundamentus.Fundamentus.coleta_indicadores_de_ativo) com *tickers* de FIIs.
 
 | **Nome Original** | **Atributo DataFrame** | **Descrição** |
 | :-- | :-- | :-- |

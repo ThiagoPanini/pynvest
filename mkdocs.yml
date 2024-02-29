@@ -1,6 +1,6 @@
 # Informações principais do projeto
 site_name: pynvest
-site_url: https://pynvest.readthedocs.io/en/latest/
+site_url: https://pynvest.readthedocs.io/pt/latest/
 site_author: Thiago Panini
 site_description : >-
   Um pacote Python capaz de utilizar processos de web scrapping para
@@ -13,7 +13,20 @@ repo_url: https://github.com/ThiagoPanini/pynvest
 
 # Copyright
 copyright: |
-  Copyright &copy; 2023-2024 <a href="https://github.com/ThiagoPanini"  target="_blank" rel="noopener">ThiagoPanini</a>
+  Copyright &copy; 2023-2024 <a href="https://github.com/ThiagoPanini"  target="_blank" rel="noopener">Thiago Panini</a>
+
+# Configurando social media no footer
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/ThiagoPanini
+      name: Thiago Panini no Github
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/thiago-panini/
+      name: Thiago Panini no LinkedIn
+    - icon: fontawesome/brands/hashnode
+      link: https://panini.hashnode.dev/
+      name: Blog panini-tech-lab no Hashnode
 
 # Configuração do tema
 theme:
@@ -23,8 +36,11 @@ theme:
   custom_dir: docs/overrides
 
   # Customizando ícone no header da página
-  # icon:
-  #   logo: tmp
+  icon:
+    logo: custom/custom-icon-32px
+  
+  # Customizando favicon (ícone da aba)
+  favicon: assets/imgs/logo/logo-sem-nome.png
 
   # Configurando paleta de cores
   palette:
@@ -68,7 +84,7 @@ nav:
     - Design: quickstart/design.md
 
   - Scrappers:
-    - Sobre os Scrappers: scrappers/about.md
+    - scrappers/index.md
     - Fundamentus:
       - Documentação:
         - Classe Fundamentus: scrappers/fundamentus/mkdocstrings/fundamentus.md
@@ -78,6 +94,19 @@ nav:
       - Indicadores: 
         - Ações: scrappers/fundamentus/indicadores/acoes.md
         - FIIs: scrappers/fundamentus/indicadores/fiis.md
+  
+  - Tools:
+    - O Módulo Pynvest Tools: tools/tools.md
+    - Quickstart:
+      - Chamando o Módulo: tools/quickstart.md
+      - Variáveis do Módulo: tools/variaveis.md
+    - Detalhes da Solução:
+      - Arquitetura: tools/arquitetura.md
+      - Recursos Provisionados: tools/recursos.md
+      - Etapas do Processo: tools/processo.md
+    - Exemplos de Análises: tools/queries.md
+
+  - Contribuindo: contribuindo/contribuindo.md
 
 # Configurando extensões
 markdown_extensions:
