@@ -1,6 +1,6 @@
 # Informações principais do projeto
 site_name: pynvest
-site_url: https://pynvest.readthedocs.io/en/latest/
+site_url: https://pynvest.readthedocs.io/pt/latest/
 site_author: Thiago Panini
 site_description : >-
   Um pacote Python capaz de utilizar processos de web scrapping para
@@ -27,8 +27,6 @@ extra:
     - icon: fontawesome/brands/hashnode
       link: https://panini.hashnode.dev/
       name: Blog panini-tech-lab no Hashnode
-    
-
 
 # Configuração do tema
 theme:
@@ -38,8 +36,11 @@ theme:
   custom_dir: docs/overrides
 
   # Customizando ícone no header da página
-  # icon:
-  #   logo: tmp
+  icon:
+    logo: custom/custom-icon-32px
+  
+  # Customizando favicon (ícone da aba)
+  favicon: assets/imgs/logo/logo-sem-nome.png
 
   # Configurando paleta de cores
   palette:
